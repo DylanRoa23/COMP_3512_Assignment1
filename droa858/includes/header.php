@@ -1,11 +1,8 @@
-<?php
-
-echo "<nav>";
-echo "<h1>Portfolio Project</h1>";
-echo '<a href="index.php">Home</a>';
-echo '<a href="about.php">About</a>';
-echo '<a href="api.php">APIs</a>';
-
-echo "</nav>";
-
-?>
+<header>
+    <h1><a href="index.php">Portfolio Project</a></h1>
+    <nav>
+        <a href="index.php">Home</a>
+        <a href="about.php">About</a>
+        <a href="apis.php">APIs</a>
+    </nav>
+</header>

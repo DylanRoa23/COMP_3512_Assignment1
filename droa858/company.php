@@ -10,9 +10,7 @@
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <?php require_once 'includes/header.php' ?>
-    </header>
+    <?php require_once 'includes/header.php' ?>
     <main class="container">
     </main>
 </body>
