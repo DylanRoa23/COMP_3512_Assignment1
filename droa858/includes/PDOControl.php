@@ -2,6 +2,7 @@
 /**
  * This class controls all PDO requests. 
  * A connection should only be opened once and closed once.
+ * Used by other classes that require database data.
  */
 class PDOControl {
 
