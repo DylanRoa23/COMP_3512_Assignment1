@@ -1,18 +1,26 @@
 <?php
-/* This class controls all PDO functions. */
+/**
+ * This class controls all PDO requests. 
+ * A connection should only be opened once and closed once.
+ */
 class PDOControl {
 
     /* Constants */
-    private const ERRMODE = PDO::ERRMODE_EXCEPTION;
+    private static const ERRMODE = PDO::ERRMODE_EXCEPTION;
+    
+    /* Status tracking */
+    private static bool $connected = false;
+    private static bool $closed = false;
 
     /* Fields */
-    private string $connString;
-    private string $user;
-    private string $pass;
-    private ?PDO $pdo;
+    private static string $connString;
+    private static string $user;
+    private static string $pass;
+    private static ?PDO $pdo;
+
+    /* Functions */
 
     /**
-     * Constructor
      * 
      * Initialize fields and connects to the database
      * 
@@ -20,26 +28,47 @@ class PDOControl {
      * @param string $user Username
      * @param string $pass Password
      */
-    public function __construct(string $connString, string $user, string $pass) {
+    public static function connect(string $connString, string $user, string $pass) {
 
-        /* Save data */
-        $this->connString = $connString;
-        $this->user = $user;
-        $this->pass = $pass;
-        
-        /* Connect to database */
-        try {
-            $pdo = new PDO($this->connString, $this->user, $this->pass);
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, self::ERRMODE);
-            $this->pdo = $pdo;
+        /* If not connected and not closed, */
+        if (!self::$connected && !self::$closed) {
+
+            /* Save data */
+            self::$connString = $connString;
+            self::$user = $user;
+            self::$pass = $pass;
+            
+            /* Try */
+            try {
+                
+                /* Connect to the database */
+                $pdo = new PDO(self::$connString, self::$user, self::$pass);
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, self::ERRMODE);
+                self::$pdo = $pdo;
+
+                /* Update status */
+                self::$connected = true;
+
+            }
+            catch (PDOException $e) {
+                die("Connection failed: " . $e->getMessage());
+            }
+
         }
-        catch (PDOException $e) {
-            die("Connection failed: " . $e->getMessage());
+        /* Otherwise, if connected, */
+        else if (self::$connected) {
+
+            die("Error: Already connected to database.");
+
         }
-        
+        /* Otherwise, if closed, */
+        else if (self::$closed) {
+
+            die("Error: Connection has been closed.");
+
+        }
+
     }
-
-    /* Functions */
 
     /**
      * 
@@ -51,24 +80,35 @@ class PDOControl {
      *  Format: ['paramName' => 'paramValue', 'paramName2' => 'paramValue2']
      * @return ?PDOStatement Returns a PDOStatement on success or null on failure.
      */
-    public function query(string $sql, ?array $paramArray): ?PDOStatement {
+    public static function query(string $sql, ?array $paramArray): ?PDOStatement {
 
         /* Initialize. */
         $statement = null;
 
-        /* Try */
-        try {
+        /* If connected, and not closed, */
+        if (self::$connected && !self::$closed) {
 
-            /* Prepare and execute. */
-            $statement = $this->pdo->prepare($sql);
-            $statement->execute($paramArray);
+            /* Try */
+            try {
+
+                /* Prepare and execute. */
+                $statement = self::$pdo->prepare($sql);
+                $statement->execute($paramArray);
+
+            }
+            /* If failed, */
+            catch (PDOException $e){
+
+                /* Die */
+                die("Query failed: " . $e->getMessage());
+
+            }
 
         }
-        /* If failed, */
-        catch (PDOException $e){
+        /* Otherwise, if not connected, */
+        else if (!self::$connected) {
 
-            /* Die */
-            die("Query failed: " . $e->getMessage());
+            die("Error: Not connected to database.");
 
         }
 
@@ -82,13 +122,13 @@ class PDOControl {
      * 
      * @return void
      */
-    public function close(): void {
+    public static function close(): void {
         
         /* Try */
         try {
             
             /* Close */
-            $this->pdo = null;
+            self::$pdo = null;
 
         }
         /* If failed, */
@@ -100,6 +140,34 @@ class PDOControl {
         }
     }
 
+    /**
+     * Returns the current status of PDO.
+     * 
+     * @return string Returns one of: Inactive; Active; Closed.
+     */
+    public static function getStatus(): string {
+
+        /* Initialize */
+        $response = "";
+
+        /* Depending on status, */
+        if(self::$connected && self::$closed) {
+            $response = "Closed";
+        }
+        else if(self::$connected && !self::$closed) {
+            $response = "Active";
+        }
+        else if(!self::$connected && !self::$closed){
+            $response = "Inactive";
+        }
+        else{
+            $response = "Impossible";
+        }
+
+        /* Return */
+        return $response;
+
+    }
 
 }
 
