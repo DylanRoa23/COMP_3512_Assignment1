@@ -78,7 +78,7 @@ class PDOControl {
      * 
      * @param string $sql An SQL query string with named parameters.
      *  Format: "SELECT * FROM table WHERE column = :paramName AND column2 = :paramName2"
-     * @param ?array $paramArray A parameter array or null if no parameters. 
+     * @param ?array $paramArray A 1D associative parameter array or null if no parameters. 
      *  Format: ['paramName' => 'paramValue', 'paramName2' => 'paramValue2']
      * @return PDOStatement Returns a PDOStatement.
      * @throws PDOException if the query failed, or if this class has not been connected to the database.
