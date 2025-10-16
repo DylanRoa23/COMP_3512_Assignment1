@@ -24,6 +24,7 @@ nav a{
     color: white;
     background-color: green;
     justify-content: space-between;
+    border: solid;
 }
 nav > div {
     background-color: red;
@@ -34,6 +35,11 @@ nav > div {
 /* Main */
 .container{
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-gap: 25px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+
+.side{
+    border: solid;
+    grid-column: 1/2;
 }
