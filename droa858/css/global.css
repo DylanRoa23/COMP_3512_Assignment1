@@ -4,6 +4,7 @@
     --h1-colour: #7085ff;
     --nav-colour: #282A35;
     --navbutton-colour: var(--h1-colour);
+    --link-colour: white;
 }
 html {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -14,24 +15,29 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 20px;
+    padding: 1rem;
     background-color: var(--nav-colour);
-    color: white;
 }
-nav a{
-    font-size: large;
-    font-weight: bold;
-    color: white;
-    /* background-color: green; */
-    justify-content: space-between;
-    border: solid;
+h1 > a {
+    font-size: 2rem;
+    color: var(--h1-colour);
+    text-decoration: none;
+}
+nav {
+    display: flex;
+    justify-content: space-around;
+    gap: 1.5rem;
 }
 nav > div {
-    display: inline-block;
     background-color: var(--navbutton-colour);
     padding: 1rem 1.5rem;
-    margin: 0 2rem;
     border-radius: 5px;
+}
+nav > div > a {
+    font-size: large;
+    font-weight: bold;
+    color: var(--link-colour);
+    text-decoration: none;
 }
 
 /* Main */
