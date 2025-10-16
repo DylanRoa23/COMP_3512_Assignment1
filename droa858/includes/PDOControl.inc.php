@@ -30,7 +30,7 @@ class PDOControl {
      * @return void
      * @throws PDOException if the connection fails, the class is already connected, or the class has already been closed.
      */
-    public static function connect(string $connString, ?string $user, ?string $pass): void {
+    public static function connect(string $connString, ?string $user = null, ?string $pass = null): void {
 
         // If not connected and not closed,
         if (!self::$connected && !self::$closed) {
@@ -83,7 +83,7 @@ class PDOControl {
      * @return PDOStatement Returns a PDOStatement.
      * @throws PDOException if the query failed, or if this class has not been connected to the database.
      */
-    public static function query(string $sql, ?array $paramArray): ?PDOStatement {
+    public static function query(string $sql, ?array $paramArray = null): ?PDOStatement {
 
         // Initialize.
         $statement = null;
