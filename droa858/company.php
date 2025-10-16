@@ -9,10 +9,12 @@
     <title>Portfolio Project</title>
 </head>
 <body>
-    <?php require_once 'includes/header.php' ?>
+    <?php require_once 'includes/header.inc.php' ?>
     <?php
+
+    
         // Connect.
-        PDOControl::connect($connString);
+        PDOControl::connect(CONNSTRING);
 
         // Test
         $dataArray = CompanyControl::getCompanyData("");
