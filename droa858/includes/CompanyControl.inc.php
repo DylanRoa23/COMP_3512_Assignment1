@@ -9,7 +9,7 @@ class CompanyControl {
     private $user;
     private $pass;
 
-    public static function getCompanyData($companySymbol): PDOStatement {
+    public static function getCompanyData(string $companySymbol): PDOStatement {
 
         // Set the arguments.
         $sql = 
@@ -26,7 +26,7 @@ class CompanyControl {
 
     }
 
-    public static function getCompanyHistory($companySymbol): PDOStatement {
+    public static function getCompanyHistory(string $companySymbol): PDOStatement {
 
         // Set the arguments.
         $sql = 
