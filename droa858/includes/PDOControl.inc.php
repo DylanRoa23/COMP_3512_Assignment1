@@ -15,23 +15,22 @@ class PDOControl {
 
     // Fields
     private static string $connString;
-    private static string $user;
-    private static string $pass;
+    private static ?string $user;
+    private static ?string $pass;
     private static ?PDO $pdo;
 
     // Functions
 
     /**
-     * 
      * Initialize fields and connects to the database
      * 
-     * @param string $connString Connection string
-     * @param string $user Username
-     * @param string $pass Password
+     * @param string $connString Connection string to the database.
+     * @param ?string $user Username if needed. Null otherwise.
+     * @param ?string $pass Password if needed. Null otherwise.
      * @return void
      * @throws PDOException if the connection fails, the class is already connected, or the class has already been closed.
      */
-    public static function connect(string $connString, string $user, string $pass): void {
+    public static function connect(string $connString, ?string $user, ?string $pass): void {
 
         // If not connected and not closed,
         if (!self::$connected && !self::$closed) {
