@@ -28,8 +28,9 @@ class PDOControl {
      * @param string $connString Connection string
      * @param string $user Username
      * @param string $pass Password
+     * @return void
      */
-    public static function connect(string $connString, string $user, string $pass) {
+    public static function connect(string $connString, string $user, string $pass): void {
 
         // If not connected and not closed,
         if (!self::$connected && !self::$closed) {
