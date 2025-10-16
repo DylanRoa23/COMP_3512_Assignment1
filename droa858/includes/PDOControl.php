@@ -6,20 +6,20 @@
  */
 class PDOControl {
 
-    /* Constants */
+    // Constants
     private static const ERRMODE = PDO::ERRMODE_EXCEPTION;
     
-    /* Status tracking */
+    // Status tracking
     private static bool $connected = false;
     private static bool $closed = false;
 
-    /* Fields */
+    // Fields
     private static string $connString;
     private static string $user;
     private static string $pass;
     private static ?PDO $pdo;
 
-    /* Functions */
+    // Functions
 
     /**
      * 
@@ -31,23 +31,23 @@ class PDOControl {
      */
     public static function connect(string $connString, string $user, string $pass) {
 
-        /* If not connected and not closed, */
+        // If not connected and not closed,
         if (!self::$connected && !self::$closed) {
 
-            /* Save data */
+            // Save data
             self::$connString = $connString;
             self::$user = $user;
             self::$pass = $pass;
             
-            /* Try */
+            // Try
             try {
                 
-                /* Connect to the database */
+                // Connect to the database
                 $pdo = new PDO(self::$connString, self::$user, self::$pass);
                 $pdo->setAttribute(PDO::ATTR_ERRMODE, self::ERRMODE);
                 self::$pdo = $pdo;
 
-                /* Update status */
+                // Update status
                 self::$connected = true;
 
             }
@@ -56,13 +56,13 @@ class PDOControl {
             }
 
         }
-        /* Otherwise, if connected, */
+        // Otherwise, if connected,
         else if (self::$connected) {
 
             die("Error: Already connected to database.");
 
         }
-        /* Otherwise, if closed, */
+        // Otherwise, if closed,
         else if (self::$closed) {
 
             die("Error: Connection has been closed.");
@@ -83,37 +83,37 @@ class PDOControl {
      */
     public static function query(string $sql, ?array $paramArray): ?PDOStatement {
 
-        /* Initialize. */
+        // Initialize.
         $statement = null;
 
-        /* If connected, and not closed, */
+        // If connected, and not closed,
         if (self::$connected && !self::$closed) {
 
-            /* Try */
+            // Try
             try {
 
-                /* Prepare and execute. */
+                // Prepare and execute.
                 $statement = self::$pdo->prepare($sql);
                 $statement->execute($paramArray);
 
             }
-            /* If failed, */
+            // If failed,
             catch (PDOException $e){
 
-                /* Die */
+                // Die
                 die("Query failed: " . $e->getMessage());
 
             }
 
         }
-        /* Otherwise, if not connected, */
+        // Otherwise, if not connected,
         else if (!self::$connected) {
 
             die("Error: Not connected to database.");
 
         }
 
-        /* Return */
+        // Return
         return $statement;
     }
 
@@ -125,17 +125,17 @@ class PDOControl {
      */
     public static function close(): void {
         
-        /* Try */
+        // Try
         try {
             
-            /* Close */
+            // Close
             self::$pdo = null;
 
         }
-        /* If failed, */
+        // If failed,
         catch (PDOException $e) {
 
-            /* Die */
+            // Die
             die("Close failed: " . $e->getMessage());
 
         }
@@ -148,10 +148,10 @@ class PDOControl {
      */
     public static function getStatus(): string {
 
-        /* Initialize */
+        // Initialize
         $response = "";
 
-        /* Depending on status, */
+        // Depending on status, set response
         if(self::$connected && self::$closed) {
             $response = "Closed";
         }
@@ -165,7 +165,7 @@ class PDOControl {
             $response = "Impossible";
         }
 
-        /* Return */
+        // Return
         return $response;
 
     }
