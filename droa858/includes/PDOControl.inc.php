@@ -7,7 +7,7 @@
 class PDOControl {
 
     // Constants
-    private static const ERRMODE = PDO::ERRMODE_EXCEPTION;
+    private const ERRMODE = PDO::ERRMODE_EXCEPTION;
     
     // Status tracking
     private static bool $connected = false;
