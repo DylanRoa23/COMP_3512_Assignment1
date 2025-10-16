@@ -1,6 +1,4 @@
-<?php
-    include 'includes/header.php'
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,9 +10,7 @@
 </head>
 <body>
     <header>
-        <?php
-
-        ?>
+        <?php require_once 'includes/header.php' ?>
     </header>
 </body>
 </html>
