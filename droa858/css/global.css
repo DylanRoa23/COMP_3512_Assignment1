@@ -26,9 +26,11 @@ nav a{
     font-weight: bold;
     color: white;
     background-color: var(--nav-colour);
+    border: solid;
 }
-a {
+h1 a{
     color: red;
+    text-decoration: none;
 }
 
 /* Main */
