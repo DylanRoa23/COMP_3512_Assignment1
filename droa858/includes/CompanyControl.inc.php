@@ -4,11 +4,6 @@
  */
 class CompanyControl {
 
-    private $db;
-    private $connString;
-    private $user;
-    private $pass;
-
     /**
      * Returns a PDOStatement containing the company's data. 
      * @param string $companySymbol The symbol of the company to get data from.
