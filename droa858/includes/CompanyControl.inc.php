@@ -11,8 +11,8 @@ class CompanyControl {
 
     /**
      * Returns a PDOStatement containing the company's data. 
-     * @param string $companySymbol The company's symbol.
-     * @return PDOStatement The PDO statement.
+     * @param string $companySymbol The symbol of the company to get data from.
+     * @return array A 1D associative array containing the company's data.
      */
     public static function getCompanyData(string $companySymbol): array {
 
@@ -33,7 +33,7 @@ class CompanyControl {
         if(isset($statement)){
 
             // Get the first and only row.
-            $data = $statement->fetch();
+            $data = $statement->fetch(PDO::FETCH_ASSOC);
 
         }
 
@@ -42,6 +42,11 @@ class CompanyControl {
 
     }
 
+    /**
+     * Returns a PDOStatement pointing to all the history entries from a given company.
+     * @param string $companySymbol The symbol of the company to fetch history from.
+     * @return PDOStatement The PDOStatement pointing to all the history entries.
+     */
     public static function getCompanyHistory(string $companySymbol): PDOStatement {
 
         // Set the arguments.
