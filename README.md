@@ -1,3 +1,4 @@
 Users: 
-- Dylan Roa (droa858): dylanroa23@gmail.com
-- Kyle Chen (Existenial): kchen116@mtroyal.ca
+- Dylan Roa (DylanRoa23): dylanroa23@gmail.com
+  MRU email: droa858@mtroyal.ca
+- Kyle Chen (Existenial): kyle.c1388@hotmail.com / kchen116@mtroyal.ca
