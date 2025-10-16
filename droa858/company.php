@@ -9,9 +9,6 @@
 </head>
 <body>
     <?php require_once 'includes/header.php' ?>
-    <main class="container">
-        <div class="side">1</div>
-        <div>2</div>
-    </main>
+
 </body>
 </html>

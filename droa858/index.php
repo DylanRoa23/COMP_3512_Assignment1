@@ -3,9 +3,7 @@
     // try{
     //     $pdo = new PDO();
     // }
-    function test(){
-        return "<p>Hello World</p>";
-    }
+
 ?>
 
 <!DOCTYPE html>
@@ -14,12 +12,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    <h1>Hello World</h1>
-
-    <?php
-    echo test();
-    ?>
+    <?php require_once 'includes/header.php' ?>
+    <main class="container">
+        <div class="side">1</div>
+        <div>2</div>
+    </main>
 </body>
 </html>
