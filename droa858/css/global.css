@@ -1,5 +1,5 @@
 /* All */
-.root {
+:root {
     /* Variables */
     --nav-colour: #282A35;
 }
@@ -20,6 +20,7 @@ nav {
     font-size: large;
     font-weight: bold;
     color: white;
+    background-color: var(--nav-colour);
 }
 a {
     color: red;
