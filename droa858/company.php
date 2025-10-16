@@ -12,5 +12,7 @@
     <header>
         <?php require_once 'includes/header.php' ?>
     </header>
+    <main class="container">
+    </main>
 </body>
 </html>
