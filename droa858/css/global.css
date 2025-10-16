@@ -16,11 +16,6 @@ header {
     background-color: var(--nav-colour);
     color: white;
 }
-
-h1{
-    margin: 0;
-}
-
 nav a{
     font-size: large;
     font-weight: bold;
@@ -35,7 +30,6 @@ nav > div {
 }
 
 /* Main */
-
 .container{
     display: grid;
     grid-template-columns: repeat(10, 1fr);
