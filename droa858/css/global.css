@@ -11,7 +11,7 @@ html {
 header {
     display: flex;
     justify-content: space-between;
-    /* align-items: center; */
+    align-items: center;
     padding: 20px 20px;
     background-color: var(--nav-colour);
 }
@@ -20,10 +20,13 @@ nav {
     font-size: large;
     font-weight: bold;
     color: white;
-    background-color: var(--nav-colour);
+    background-color: green;
+    justify-content: space-between;
 }
-a {
-    color: red;
+nav > div {
+    background-color: red;
+    padding: 1rem;
+    margin: 0 2rem 0 2rem;
 }
 
 /* Main */
