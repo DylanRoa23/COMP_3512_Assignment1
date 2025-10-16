@@ -96,6 +96,12 @@ class PDOControl {
 
                 // Prepare and execute.
                 $statement = self::$pdo->prepare($sql);
+                // foreach($paramArray as $key => $value) {
+                //     echo "Key: " . $key;
+                //     echo "<br>";
+                //     echo "Value: " . $value;
+                //     echo "<br>";
+                // }
                 $statement->execute($paramArray);
 
             }
