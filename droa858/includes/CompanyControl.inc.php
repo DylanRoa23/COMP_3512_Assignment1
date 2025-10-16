@@ -13,9 +13,9 @@ class CompanyControl {
 
         // Set the arguments.
         $sql = 
-            "SELECT symbol, name, sector, subindustry, address, exchange, website, description, financials
+            'SELECT symbol, name, sector, subindustry, address, exchange, website, description, financials
             FROM companies
-            WHERE symbol = :symbol";
+            WHERE symbol = ":symbol"';
         $paramArray = ["symbol" => $companySymbol];
 
         // Query the data.
@@ -30,9 +30,9 @@ class CompanyControl {
 
         // Set the arguments.
         $sql = 
-            "SELECT symbol, date, volume, open, close, high, low
+            'SELECT symbol, date, volume, open, close, high, low
             FROM history
-            WHERE symbol = :symbol";
+            WHERE symbol = ":symbol"';
         $paramArray = ["symbol" => $companySymbol];
 
     }
