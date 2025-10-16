@@ -1,7 +1,7 @@
 <?php
 
-// Initialize
-$connString = "sqlite:data/stocks.db";
+require_once "PDOControl.inc.php";
+require_once "CompanyControl";
 
-// Connect.
-// PDOControl::connect($connString);
+// Initialize
+const CONNSTRING = "sqlite:data/stocks.db";
