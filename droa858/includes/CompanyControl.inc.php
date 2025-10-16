@@ -12,9 +12,9 @@ class CompanyControl {
     /**
      * Returns a PDOStatement containing the company's data. 
      * @param string $companySymbol The company's symbol.
-     * @return ?PDOStatement 
+     * @return PDOStatement The PDO statement.
      */
-    public static function getCompanyData(string $companySymbol): ?PDOStatement {
+    public static function getCompanyData(string $companySymbol): array {
 
         // Initialize
         $data = null;
