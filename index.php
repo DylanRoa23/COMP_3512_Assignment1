@@ -1,7 +1,10 @@
 <?php
 
-    try{
-        $pdo = new PDO();
+    // try{
+    //     $pdo = new PDO();
+    // }
+    function test(){
+        return "<p>Hello World</p>";
     }
 ?>
 
@@ -13,6 +16,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Test</h1>
+    <h1>Hello World</h1>
+
+    <?php
+    echo test();
+    ?>
 </body>
 </html>
