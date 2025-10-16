@@ -12,6 +12,9 @@ a {
 nav{
     background-color: var(--nav-colour);
     color: white;
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
 }
 
 h1{
