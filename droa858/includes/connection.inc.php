@@ -1,7 +1,7 @@
 <?php
 
+// Initialize
 $connString = "sqlite:data/stocks.db";
-$user = null;
-$pass = null;
 
-PDOControl::connect($connString);
+// Connect.
+// PDOControl::connect($connString);
