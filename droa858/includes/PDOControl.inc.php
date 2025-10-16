@@ -29,6 +29,7 @@ class PDOControl {
      * @param string $user Username
      * @param string $pass Password
      * @return void
+     * @throws PDOException if the connection fails, the class is already connected, or the class has already been closed.
      */
     public static function connect(string $connString, string $user, string $pass): void {
 
@@ -80,7 +81,8 @@ class PDOControl {
      *  Format: "SELECT * FROM table WHERE column = :paramName AND column2 = :paramName2"
      * @param ?array $paramArray A parameter array or null if no parameters. 
      *  Format: ['paramName' => 'paramValue', 'paramName2' => 'paramValue2']
-     * @return ?PDOStatement Returns a PDOStatement on success or null on failure.
+     * @return PDOStatement Returns a PDOStatement.
+     * @throws PDOException if the query failed, or if this class has not been connected to the database.
      */
     public static function query(string $sql, ?array $paramArray): ?PDOStatement {
 
@@ -123,6 +125,7 @@ class PDOControl {
      * Closes the connection to the database. This Pdo instance is no longer usable.
      * 
      * @return void
+     * @throws PDOException if close failed.
      */
     public static function close(): void {
         
