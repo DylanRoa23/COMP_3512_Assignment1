@@ -11,15 +11,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home Page</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
     <?php require_once 'includes/header.php' ?>
+
     <main class="container">
-        <div class="side">1</div>
+        <div id="side">1</div>
         <div>2</div>
     </main>
 </body>

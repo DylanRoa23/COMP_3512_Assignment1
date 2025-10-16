@@ -4,7 +4,8 @@
     grid-gap: 10px;
 }
 
-.side{
+#side{
     border: solid;
     grid-column: 1/2;
 }
+
