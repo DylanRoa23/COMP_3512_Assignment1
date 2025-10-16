@@ -1,7 +1,9 @@
 /* All */
 :root {
     /* Variables */
+    --h1-colour: #7085ff;
     --nav-colour: #282A35;
+    --navbutton-colour: var(--h1-colour);
 }
 html {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -20,7 +22,6 @@ nav a{
     font-size: large;
     font-weight: bold;
     color: white;
-    border: solid;
     background-color: green;
     justify-content: space-between;
 }
@@ -28,9 +29,6 @@ nav > div {
     background-color: red;
     padding: 1rem;
     margin: 0 2rem 0 2rem;
-h1 a{
-    color: red;
-    text-decoration: none;
 }
 
 /* Main */
