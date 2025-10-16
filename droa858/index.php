@@ -20,8 +20,8 @@
     <?php require_once 'includes/header.php' ?>
 
     <main class="container">
-        <div id="side">1</div>
-        <div>2</div>
+        <div id="customer">1</div>
+        <div id="summary">2</div>
     </main>
 </body>
 </html>

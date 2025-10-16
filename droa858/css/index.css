@@ -1,11 +1,21 @@
+:root{
+    --main-colour: #f0f0f0;
+}
+
 .container{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
 }
 
-#side{
+#customer{
     border: solid;
     grid-column: 1/2;
+    background-color: var(--main-colour);
 }
 
+#summary{
+    border: solid;
+    grid-column: 2/4;
+    background-color: var(--main-colour);
+}
