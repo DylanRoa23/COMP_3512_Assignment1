@@ -9,7 +9,15 @@ class CompanyControl {
     private $user;
     private $pass;
 
-    public static function getCompanyData(string $companySymbol): PDOStatement {
+    /**
+     * Returns a PDOStatement containing the company's data. 
+     * @param string $companySymbol The company's symbol.
+     * @return ?PDOStatement 
+     */
+    public static function getCompanyData(string $companySymbol): ?PDOStatement {
+
+        // Initialize
+        $data = null;
 
         // Set the arguments.
         $sql = 
@@ -21,8 +29,16 @@ class CompanyControl {
         // Query the data.
         $statement = PDOControl::query($sql, $paramArray);
 
+        // Get the data.
+        if(isset($statement)){
+
+            // Get the first and only row.
+            $data = $statement->fetch();
+
+        }
+
         // Return
-        return $statement;
+        return $data;
 
     }
 
@@ -32,8 +48,15 @@ class CompanyControl {
         $sql = 
             'SELECT symbol, date, volume, open, close, high, low
             FROM history
-            WHERE symbol = ":symbol"';
+            WHERE symbol = ":symbol"
+            ORDER BY date DESC';
         $paramArray = ["symbol" => $companySymbol];
+
+        // Query the data.
+        $statement = PDOControl::query($sql, $paramArray);
+
+        // Return
+        return $statement;
 
     }
 
