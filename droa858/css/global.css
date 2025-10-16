@@ -14,9 +14,14 @@ header {
     align-items: center;
     padding: 20px 20px;
     background-color: var(--nav-colour);
+    color: white;
 }
-nav {
-    display: flex;
+
+h1{
+    margin: 0;
+}
+
+nav a{
     font-size: large;
     font-weight: bold;
     color: white;
