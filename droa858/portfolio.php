@@ -87,6 +87,15 @@ PDOControl::connect(CONNSTRING);
                 </div>
                 <div>
                     <h3>Total Value</h3>
+                    <?php 
+                        if (isset($_GET['ref'])) {
+                            $id = (int) $_GET['ref'];
+                            $portfolioValue = UserControl::getUserPortfolioValue($id);
+                            echo "<p>$" . number_format($portfolioValue, 0) . "</p>";
+                        } else {
+                            echo "<p>—</p>";
+                        }
+                    ?>
                 </div>
             </div>
         </div>

@@ -119,5 +119,41 @@ class UserControl {
         // Return
         return $result['total_shares'];
     }
+
+    /**
+     * Calculates the total value of a user's portfolio.
+     * The value is determined by summing (latest closing price * amount of stock owned) for each company the user owns.
+     * @param int $uid The user ID whose portfolio value will be calculated.
+     * @return float The total portfolio value.
+     */
+    public static function getUserPortfolioValue(int $uid): float {
+
+        // Initialize
+        $totalValue = 0.0;
+        $sql = "SELECT symbol, amount  
+        FROM portfolio 
+        WHERE userId = :uid";
+        $paramArray = ["uid" => $uid];
+
+        //query
+        $statement = PDOControl::query($sql, $paramArray);
+
+        // Loop through each owned company
+        while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+            $symbol = $row['symbol'];
+            $amount = (int)$row['amount'];
+
+            // Fetch latest close price from history
+            $history = self::getLatestHistory($symbol);
+
+            if ($history && isset($history['close'])) {
+                $price = (float)$history['close'];
+                $totalValue += $price * $amount;
+            }
+        }
+
+        //Return
+        return $totalValue;
+    }
 }
 ?>
