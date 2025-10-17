@@ -27,7 +27,7 @@ require_once 'includes/portfolioConnection.inc.php';
                 $name = htmlspecialchars($user['firstname'] . ", " . $user['lastname']);
                 echo "<div class='user'>";
                 echo "<p>$name</p>";
-                echo "<a class='viewButton' href='portfolio.php?ref=$id'>View Portfolio</a>";
+                echo "<a class='viewButton' href='portfolio.php?ref=$id'>Portfolio</a>";
                 echo "</div>";
             }
             ?>
