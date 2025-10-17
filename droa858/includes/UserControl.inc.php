@@ -19,7 +19,7 @@ class UserControl {
 
         // Return
         return $statement;
-        
+
     }
 
     /**
@@ -81,20 +81,20 @@ class UserControl {
     public static function countUserCompanies(int $uid): int {
     
         //Initialize
-        $statement = null;
         $sql = "SELECT COUNT(DISTINCT symbol) AS company_count 
                 FROM portfolio 
                 WHERE userId = :uid";
         $paramArray = ["uid" => $uid];
 
-        //query
+        // Query
         $statement = PDOControl::query($sql, $paramArray);
 
-        //convert to array
-        $result = $statement->fetch(PDO::FETCH_ASSOC);
+        // Convert to array
+        $result = $statement->fetch();
 
         //Return
-        return $result ? (int)$result['company_count'] : 0;
+        return $result['company_count'];
+
     }
 }
 ?>
