@@ -74,16 +74,29 @@ class UserControl {
 
     }
 
-
     
+    /**
+     * Returns a PDOStatement containing the the count/sum of how many companies are in the user's portfolio
+     * @param int $uid The user ID whose portfolio will be analyzed.
+     * @return int The number of unique companies in the user's portfolio.
+     */    
     public static function countUserCompanies(int $uid): int {
-    $sql = "SELECT COUNT(DISTINCT symbol) AS company_count 
-            FROM portfolio 
-            WHERE userId = :uid";
-    $paramArray = ["uid" => $uid];
-    $statement = PDOControl::query($sql, $paramArray);
-    $result = $statement->fetch(PDO::FETCH_ASSOC);
-    return $result ? (int)$result['company_count'] : 0;
-}
+    
+        //Initialize
+        $statement = null;
+        $sql = "SELECT COUNT(DISTINCT symbol) AS company_count 
+                FROM portfolio 
+                WHERE userId = :uid";
+        $paramArray = ["uid" => $uid];
+
+        //query
+        $statement = PDOControl::query($sql, $paramArray);
+
+        //convert to array
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+
+        //Return
+        return $result ? (int)$result['company_count'] : 0;
+    }
 }
 ?>

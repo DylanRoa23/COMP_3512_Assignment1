@@ -72,7 +72,15 @@ PDOControl::connect(CONNSTRING);
             <div id="placeholder">
                 <div>
                     <h3>Companies</h3>
-
+                        <?php 
+                            if (isset($_GET['ref'])) {
+                                $id = (int) $_GET['ref'];
+                                $companyCount = UserControl::countUserCompanies($id);
+                                echo "<p>$companyCount</p>";
+                            } else {
+                                echo "<p>—</p>";
+                            }
+                        ?>
                 </div>
                 <div>
                     <h3># Shares</h3>
