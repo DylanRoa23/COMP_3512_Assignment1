@@ -59,8 +59,8 @@ PDOControl::connect(CONNSTRING);
 
         </div>
         <div id="summary">
-            <h2>Portfolio Summary</h2>
-            <div id="placeholder">
+            <div id="portfolioSummary">
+                <h2>Portfolio Summary</h2>
                 <div>
                     <h3>Companies</h3>
                         <?php 
@@ -97,6 +97,10 @@ PDOControl::connect(CONNSTRING);
                         }
                     ?>
                 </div>
+            </div>
+
+            <div>
+                <h2>Portfolio Details</h2>
             </div>
         </div>
     </main>
