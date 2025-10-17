@@ -1,7 +1,7 @@
 <?php
 // // Require
 require_once "includes/connection.inc.php";
-require_once "includes/Names.inc.php";
+require_once "includes/UserControl.inc.php";
 
 PDOControl::connect(CONNSTRING);
 
@@ -25,7 +25,7 @@ PDOControl::connect(CONNSTRING);
             <h2>Customers</h2>
             <h3>Name</h3>
             <?php
-            $users = UserNames::getAllUsers();
+            $users = UserControl::getAllUsers();
             foreach ($users as $user) {
                 $id = htmlspecialchars($user['id']);
                 $name = htmlspecialchars($user['firstname'] . ", " . $user['lastname']);
