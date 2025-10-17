@@ -27,11 +27,15 @@ PDOControl::close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/company.css">
     <title>Portfolio Project</title>
 </head>
 
 <body>
     <?php require_once 'includes/header.inc.php'; ?>
+    <div>
+        <h1>Company Info</h1>
+    </div>
     <div>
         
     </div>
