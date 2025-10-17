@@ -24,9 +24,6 @@ $dataArray = CompanyControl::getCompanyData("A");
 //         echo "<br>";
 //     }
 // }
-
-// Close
-PDOControl::close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,3 +57,7 @@ PDOControl::close();
 </body>
 
 </html>
+<?php
+// Close
+PDOControl::close();
+?>
