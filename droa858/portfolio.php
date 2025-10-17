@@ -3,12 +3,41 @@
 require_once "includes/connection.inc.php";
 require_once "includes/UserControl.inc.php";
 
+// Connect
 PDOControl::connect(CONNSTRING);
+
+// // Test
+// $dataArray = UserControl::getUserPortfolios(1);
+// while ($row = $dataArray->fetch(PDO::FETCH_ASSOC)) {
+//     foreach ($row as $key => $value) {
+//         echo "Key: " . $key;
+//         echo "<br>";
+//         if (is_array($value)) {
+//             foreach ($value as $value2) {
+//                 echo "Value: " . $value2;
+//                 echo "<br>";
+//             }
+//         } else {
+//             echo "Value: " . $value;
+//             echo "<br>";
+//         }
+
+//     }
+// }
+
+// $dataArray = UserControl::getLatestHistory("GOOG");
+// foreach ($dataArray as $key => $value) {
+//     echo "Key: " . $key;
+//     echo "<br>";
+//     echo "Value: " . $value;
+//     echo "<br>";
+// }
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +46,7 @@ PDOControl::connect(CONNSTRING);
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/portfolio.css">
 </head>
+
 <body>
     <?php require_once 'includes/header.inc.php' ?>
 
@@ -53,6 +83,7 @@ PDOControl::connect(CONNSTRING);
         </div>
     </main>
 </body>
+
 </html>
 <?php
 
