@@ -1,3 +1,11 @@
-h1 {
+/* Main */
+main {
+    background-color: lightgrey;
+}
+main h2 {
+    padding: 1.7rem;
     text-align: center;
+}
+main #info {
+    padding: 1rem 2rem;
 }

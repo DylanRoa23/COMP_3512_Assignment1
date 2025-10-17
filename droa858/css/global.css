@@ -20,6 +20,9 @@ header {
     background-image: url("../images/Banner.png");
     background-size: 100% 100%;
 }
+header > h2 {
+    margin: 1rem;
+}
 header > h2 > a {
     font-size: 2rem;
     color: var(--navheading-colour);

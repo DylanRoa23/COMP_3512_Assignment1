@@ -1,4 +1,4 @@
-<?php 
+<?php
 // // Require
 require_once "includes/connection.inc.php";
 require_once "includes/CompanyControl.inc.php";
@@ -14,6 +14,15 @@ $dataArray = CompanyControl::getCompanyData("A");
 //     echo "<br>";
 //     echo "Value: " . $value;
 //     echo "<br>";
+// }
+// $dataArray["financials"] = json_decode($dataArray["financials"], true);
+// foreach ($dataArray["financials"] as $key => $value) {
+//     echo "Key: " . $key;
+//     echo "<br>";
+//     foreach ($value as $value2) {
+//         echo "Value: " . $value2;
+//         echo "<br>";
+//     }
 // }
 
 // Close
@@ -33,12 +42,21 @@ PDOControl::close();
 
 <body>
     <?php require_once 'includes/header.inc.php'; ?>
-    <div>
-        <h1>Company Info</h1>
-    </div>
-    <div>
-        
-    </div>
+    <main>
+        <div>
+            <h2>Company Info</h2>
+        </div>
+        <div id="info">
+            <h1><?= $dataArray["name"]; ?> (<?= $dataArray["symbol"]; ?>)</h1>
+            <p><?= $dataArray["sector"]; ?></p>
+            <p><?= $dataArray["subindustry"]; ?></p>
+            <p><?= $dataArray["address"]; ?></p>
+            <p><?= $dataArray["exchange"]; ?></p>
+            <p><?= $dataArray["website"]; ?></p>
+            <p><?= $dataArray["description"]; ?></p>
+        </div>
+    </main>
+
 </body>
 
 </html>
