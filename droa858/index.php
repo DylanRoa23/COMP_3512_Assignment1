@@ -1,8 +1,5 @@
 <?php
-
-    // try{
-    //     $pdo = new PDO();
-    // }
+require_once 'includes/connection.inc.php';
 
 ?>
 
@@ -23,6 +20,7 @@
         <div id="customer">
             <h2>Customers</h2>
             <h3>Name</h3>
+            
         </div>
         <div id="summary">2</div>
     </main>
