@@ -8,6 +8,7 @@ require_once "includes/CompanyControl.inc.php";
 PDOControl::connect(CONNSTRING);
 
 // Get the company data.
+// $dataArray = CompanyControl::getCompanyData($_GET["symbol"]);
 $dataArray = CompanyControl::getCompanyData("A");
 // foreach ($dataArray as $key => $value) {
 //     echo "Key: " . $key;
