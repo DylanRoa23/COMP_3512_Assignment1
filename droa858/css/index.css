@@ -8,14 +8,20 @@
     grid-gap: 10px;
 }
 
-#customer{
+#customer {
     border: solid;
     grid-column: 1/2;
     background-color: var(--main-colour);
+    padding: 1em; 
 }
 
+#customer > h2 {
+    text-align: center;
+}
 #summary{
     border: solid;
     grid-column: 2/4;
     background-color: var(--main-colour);
+    display: flex;
 }
+
