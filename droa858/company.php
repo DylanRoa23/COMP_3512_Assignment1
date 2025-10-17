@@ -1,4 +1,23 @@
-<?php require_once 'includes/connection.inc.php' ?>
+<?php 
+// // Require
+require_once 'includes/connection.inc.php';
+
+// // Get the company's data.
+// Connect.
+PDOControl::connect(CONNSTRING);
+
+// Get the company data.
+$dataArray = CompanyControl::getCompanyData("A");
+// foreach ($dataArray as $key => $value) {
+//     echo "Key: " . $key;
+//     echo "<br>";
+//     echo "Value: " . $value;
+//     echo "<br>";
+// }
+
+// Close
+PDOControl::close();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,24 +31,9 @@
 
 <body>
     <?php require_once 'includes/header.inc.php' ?>
-    <?php
-
-
-    // Connect.
-    PDOControl::connect(CONNSTRING);
-
-    // Test
-    $dataArray = CompanyControl::getCompanyData("A");
-    foreach ($dataArray as $key => $value) {
-        echo "Key: " . $key;
-        echo "<br>";
-        echo "Value: " . $value;
-        echo "<br>";
-    }
-
-    // Close
-    PDOControl::close();
-    ?>
+    <div>
+        
+    </div>
 </body>
 
 </html>
