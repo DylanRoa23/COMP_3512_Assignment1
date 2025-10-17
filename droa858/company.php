@@ -1,6 +1,7 @@
 <?php 
 // // Require
-require_once 'includes/connection.inc.php';
+require_once "includes/connection.inc.php";
+require_once "includes/CompanyControl.inc.php";
 
 // // Get the company's data.
 // Connect.
@@ -30,7 +31,7 @@ PDOControl::close();
 </head>
 
 <body>
-    <?php require_once 'includes/header.inc.php' ?>
+    <?php require_once 'includes/header.inc.php'; ?>
     <div>
         
     </div>
