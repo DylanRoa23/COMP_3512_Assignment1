@@ -22,6 +22,11 @@ class UserControl {
         return $data;
     }
 
+    /**
+     * Returns a PDOStatement containing portfolio data for a user.
+     * @param int $uid The user id of the user to get portfolio data from.
+     * @return PDOStatement A PDOStatement pointing to the user's portfolios.
+     */
     public static function getUserPortfolios(int $uid): PDOStatement {
 
         // Initialize
