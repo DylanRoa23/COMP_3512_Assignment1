@@ -20,16 +20,21 @@ require_once 'includes/portfolioConnection.inc.php';
         <div id="customer">
             <h2>Customers</h2>
             <h3>Name</h3>
-        <?php
-        $users = UserNames::getAllUsers();
-        foreach ($users as $user) {
-            echo "<p>" . htmlspecialchars($user['firstname'] . ", " . $user['lastname']) . "</p>";
-        }
-        ?>
+            <?php
+            $users = UserNames::getAllUsers();
+            foreach ($users as $user) {
+                $id = htmlspecialchars($user['id']);
+                $name = htmlspecialchars($user['firstname'] . ", " . $user['lastname']);
+                echo "<div class='user'>";
+                echo "<p>$name</p>";
+                echo "<a class='viewButton' href='portfolio.php?ref=$id'>Portfolio</a>";
+                echo "</div>";
+            }
+            ?>
 
         </div>
-        <div>
-            <h2 ></h2>
+        <div id="summary">
+            
         </div>
     </main>
 </body>
