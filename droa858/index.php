@@ -1,5 +1,5 @@
 <?php
-require_once 'includes/connection.inc.php';
+require_once 'includes/indexConnection.inc.php';
 
 ?>
 
@@ -20,7 +20,13 @@ require_once 'includes/connection.inc.php';
         <div id="customer">
             <h2>Customers</h2>
             <h3>Name</h3>
-            
+        <?php
+        $users = UserNames::getAllUsers();
+        foreach ($users as $user) {
+            echo "<p>" . htmlspecialchars($user['firstname'] . ", " . $user['lastname']) . "</p>";
+        }
+        ?>
+
         </div>
         <div id="summary">2</div>
     </main>

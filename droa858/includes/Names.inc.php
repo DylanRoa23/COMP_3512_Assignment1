@@ -1,17 +1,17 @@
 <?php
 /**
- * Fetches and displays user names from the stocks.db database.
+ * Fetches user names from the stocks.db database.
  */
 class UserNames {
 
     /**
      * Returns all user names from the database.
-     * @return array An array of associative arrays containing user data.
+     * @return array An array of associative arrays with 'firstname' and 'lastname' keys.
      */
     public static function getAllUsers(): array {
         $data = [];
 
-        $sql = "SELECT lastname, firstname 
+        $sql = "SELECT firstname, lastname 
         FROM users";
         $statement = PDOControl::query($sql);
 

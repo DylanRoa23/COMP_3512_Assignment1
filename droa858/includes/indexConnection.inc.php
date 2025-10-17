@@ -6,4 +6,7 @@ require_once "Names.inc.php";
 // Initialize
 const CONNSTRING = "sqlite:data/stocks.db";
 
+// Connect to the database
+PDOControl::connect(CONNSTRING);
+
 ?>
