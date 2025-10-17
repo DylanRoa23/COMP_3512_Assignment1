@@ -51,12 +51,16 @@
     border: solid;
     grid-column: 2/4;
     background-color: var(--main-colour);
-    display: flex;
+    padding: 1em; 
 }
 
 
-#message{
+#summary > h2{
     text-align: center;
     font-weight: bold;
     width: 100%;
+}
+
+#placeholder{
+    display: flex;
 }
