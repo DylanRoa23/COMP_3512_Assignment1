@@ -27,8 +27,8 @@ PDOControl::connect(CONNSTRING);
             <?php
             $users = UserControl::getAllUsers();
             foreach ($users as $user) {
-                $id = htmlspecialchars($user['id']);
-                $name = htmlspecialchars($user['firstname'] . ", " . $user['lastname']);
+                $id = $user['id'];
+                $name = $user['firstname'] . ", " . $user['lastname'];
                 echo "<div class='user'>";
                 echo "<p>$name</p>";
                 echo "<a class='viewButton' href='portfolio.php?ref=$id'>Portfolio</a>";

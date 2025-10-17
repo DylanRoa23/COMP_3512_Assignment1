@@ -6,7 +6,7 @@ require_once "includes/UserControl.inc.php";
 // Connect
 PDOControl::connect(CONNSTRING);
 
-// // Test
+// Test
 // $dataArray = UserControl::getUserPortfolios(1);
 // while ($row = $dataArray->fetch(PDO::FETCH_ASSOC)) {
 //     foreach ($row as $key => $value) {
@@ -57,8 +57,8 @@ PDOControl::connect(CONNSTRING);
             <?php
             $users = UserControl::getAllUsers();
             foreach ($users as $user) {
-                $id = htmlspecialchars($user['id']);
-                $name = htmlspecialchars($user['firstname'] . ", " . $user['lastname']);
+                $id = $user['id'];
+                $name = $user['firstname'] . ", " . $user['lastname'];
                 echo "<div class='user'>";
                 echo "<p>$name</p>";
                 echo "<a class='viewButton' href='portfolio.php?ref=$id'>Portfolio</a>";
@@ -72,6 +72,7 @@ PDOControl::connect(CONNSTRING);
             <div id="placeholder">
                 <div>
                     <h3>Companies</h3>
+
                 </div>
                 <div>
                     <h3># Shares</h3>
