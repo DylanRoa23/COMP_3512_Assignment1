@@ -38,7 +38,18 @@ PDOControl::connect(CONNSTRING);
 
         </div>
         <div id="summary">
-            
+            <h2>Portfolio Summary</h2>
+            <div id="placeholder">
+                <div>
+                    <h3>Companies</h3>
+                </div>
+                <div>
+                    <h3># Shares</h3>
+                </div>
+                <div>
+                    <h3>Total Value</h3>
+                </div>
+            </div>
         </div>
     </main>
 </body>
