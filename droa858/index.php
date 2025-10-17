@@ -24,17 +24,8 @@ PDOControl::connect(CONNSTRING);
         <div id="customer">
             <h2>Customers</h2>
             <h3>Name</h3>
-            <?php
-            $users = UserControl::getAllUsers();
-            foreach ($users as $user) {
-                $id = htmlspecialchars($user['id']);
-                $name = htmlspecialchars($user['firstname'] . ", " . $user['lastname']);
-                echo "<div class='user'>";
-                echo "<p>$name</p>";
-                echo "<a class='viewButton' href='portfolio.php?ref=$id'>Portfolio</a>";
-                echo "</div>";
-            }
-            ?>
+
+            <?php require_once 'includes/customerlist.inc.php'; ?>
 
         </div>
         <div id="summary">

@@ -5,21 +5,21 @@
 class UserControl {
 
     /**
-     * Returns all user names from the database.
-     * @return array An array of associative arrays with 'firstname' and 'lastname' keys.
+     * Returns a PDOStatement pointing to all user data from the database.
+     * @return PDOStatement A PDOStatement pointing to user data with 'firstname' and 'lastname' keys.
      */
-    public static function getAllUsers(): array {
-        $data = [];
-
+    public static function getAllUsers(): PDOStatement {
+        
+        // Initialize
         $sql = "SELECT id, firstname, lastname 
-        FROM users";
+            FROM users";
+
+        // Query
         $statement = PDOControl::query($sql);
 
-        if ($statement) {
-            $data = $statement->fetchAll(PDO::FETCH_ASSOC);
-        }
-
-        return $data;
+        // Return
+        return $statement;
+        
     }
 
     /**
@@ -30,7 +30,6 @@ class UserControl {
     public static function getUserPortfolios(int $uid): PDOStatement {
 
         // Initialize
-        $statement = null;
         $sql = 
             "SELECT u.id, u.firstname, p.symbol, p.amount, c.name, c.sector
             FROM users u
@@ -54,7 +53,6 @@ class UserControl {
     public static function getLatestHistory(string $symbol): array {
 
         // Initialize
-        $statement = null;
         $sql = 
             "SELECT symbol, date, close
             FROM history
