@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    <?php require_once 'includes/header.php' ?>
+    <?php require_once 'includes/header.inc.php' ?>
 
     <main class="container">
         <div id="customer">1</div>
