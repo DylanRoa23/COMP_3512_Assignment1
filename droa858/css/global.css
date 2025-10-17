@@ -1,9 +1,9 @@
 /* All */
 :root {
     /* Variables */
-    --h1-colour: #7085ff;
+    --navheading-colour: #7085ff;
     --nav-colour: #282A35;
-    --navbutton-colour: var(--h1-colour);
+    --navbutton-colour: var(--navheading-colour);
     --link-colour: white;
 }
 html {
@@ -20,7 +20,7 @@ header {
 }
 h1 > a {
     font-size: 2rem;
-    color: var(--h1-colour);
+    color: var(--navheading-colour);
     text-decoration: none;
 }
 nav {
