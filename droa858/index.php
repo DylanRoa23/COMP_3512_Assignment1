@@ -1,5 +1,9 @@
 <?php
-require_once 'includes/portfolioConnection.inc.php';
+// // Require
+require_once "includes/connection.inc.php";
+require_once "includes/Names.inc.php";
+
+PDOControl::connect(CONNSTRING);
 
 ?>
 
@@ -39,3 +43,9 @@ require_once 'includes/portfolioConnection.inc.php';
     </main>
 </body>
 </html>
+<?php
+
+// Close the connection.
+PDOControl::close();
+
+?>
