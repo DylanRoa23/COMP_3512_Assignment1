@@ -96,5 +96,28 @@ class UserControl {
         return $result['company_count'];
 
     }
+
+    /**
+     * Returns the total number of shares owned by a user and then sums the 'amount' column for all entries in the user's portfolio.
+     * @param int $uid The user ID whose total shares will be calculated.
+     * @return int The total number of shares owned by the user.
+     */
+    public static function countUserShares(int $uid): int {
+
+        // Initialize
+        $sql = "SELECT SUM(amount) AS total_shares 
+                FROM portfolio 
+                WHERE userId = :uid";
+        $paramArray = ["uid" => $uid];
+
+        // Query
+        $statement = PDOControl::query($sql, $paramArray);
+
+        // Convert to array
+        $result = $statement->fetch();
+
+        // Return
+        return $result['total_shares'] ?? 0;
+    }
 }
 ?>

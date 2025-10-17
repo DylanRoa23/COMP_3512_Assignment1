@@ -75,6 +75,15 @@ PDOControl::connect(CONNSTRING);
                 </div>
                 <div>
                     <h3># Shares</h3>
+                    <?php 
+                        if (isset($_GET['ref'])) {
+                            $id = (int) $_GET['ref'];
+                            $totalShares = UserControl::countUserShares($id);
+                            echo "<p>$totalShares</p>";
+                        } else {
+                            echo "<p>—</p>";
+                        }
+                    ?>
                 </div>
                 <div>
                     <h3>Total Value</h3>
