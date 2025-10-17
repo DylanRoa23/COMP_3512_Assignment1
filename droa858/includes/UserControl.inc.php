@@ -77,7 +77,7 @@ class UserControl {
      * Returns a PDOStatement containing the the count/sum of how many companies are in the user's portfolio
      * @param int $uid The user ID whose portfolio will be analyzed.
      * @return int The number of unique companies in the user's portfolio.
-     */    
+     */
     public static function countUserCompanies(int $uid): int {
     
         //Initialize
