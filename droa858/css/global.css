@@ -17,6 +17,8 @@ header {
     align-items: center;
     padding: 1rem;
     background-color: var(--nav-colour);
+    background-image: url("../images/Banner.png");
+    background-size: 100% 100%;
 }
 header > h2 > a {
     font-size: 2rem;
