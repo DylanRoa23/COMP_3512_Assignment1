@@ -11,7 +11,7 @@ class UserNames {
     public static function getAllUsers(): array {
         $data = [];
 
-        $sql = "SELECT firstname, lastname 
+        $sql = "SELECT id, firstname, lastname 
         FROM users";
         $statement = PDOControl::query($sql);
 
