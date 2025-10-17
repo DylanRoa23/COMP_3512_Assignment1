@@ -117,7 +117,7 @@ class UserControl {
         $result = $statement->fetch();
 
         // Return
-        return $result['total_shares'] ?? 0;
+        return $result['total_shares'];
     }
 }
 ?>
