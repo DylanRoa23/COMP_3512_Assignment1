@@ -50,7 +50,7 @@ PDOControl::close();
             <h1><?= $dataArray["name"]; ?> (<?= $dataArray["symbol"]; ?>)</h1>
             <p><?= $dataArray["sector"]; ?></p>
             <p><?= $dataArray["subindustry"]; ?></p>
-            <p><?= $dataArray["address"]; ?></p>
+            <p>Based in <?= $dataArray["address"]; ?></p>
             <p><?= $dataArray["exchange"]; ?></p>
             <p><?= $dataArray["website"]; ?></p>
             <p><?= $dataArray["description"]; ?></p>
