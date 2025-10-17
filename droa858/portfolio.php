@@ -102,6 +102,9 @@ PDOControl::connect(CONNSTRING);
             <div>
                 <h2>Portfolio Details</h2>
             </div>
+            <div>
+                <a href="company.php?symbol=GOOG">Google</a>
+            </div>
         </div>
     </main>
 </body>
