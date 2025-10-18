@@ -231,7 +231,7 @@ class UserControl {
 
     /**
      * Returns the sectors for all companies in a user's portfolio.
-     * Each sector corresponds to a company the user owns.
+     * Each sector corresponds to the sector of a company the user owns.
      * @param int $uid The user ID whose company sectors will be retrieved.
      * @return string HTML string of company sectors.
      */
@@ -262,6 +262,43 @@ class UserControl {
             return $html;
         } else {
             return "<p>No sectors found.</p>";
+        }
+    }
+
+    /**
+     * Returns the sum of shares the user owns for each company individually.
+     * For each unique symbol in the user's portfolio, this method/function calculates the total number of shares owned.
+     * @param int $uid The user ID whose shares will be calculated.
+     * @return string HTML string displaying the total shares for each company symbol.
+     */
+    public static function getSymbolAmount(int $uid): string {
+
+        // Initialize
+        $html = "";
+        $sql = "SELECT symbol, SUM(amount) AS total_shares
+                FROM portfolio 
+                WHERE userId = :uid
+                GROUP BY symbol
+                ORDER BY symbol ASC";
+        $paramArray = ["uid" => $uid];
+
+        // Query
+        $statement = PDOControl::query($sql, $paramArray);
+
+        // Build HTML
+        while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+            $symbol = $row['symbol'];
+            $shares = (int)$row['total_shares'];
+            $html .= "<div class='details'>
+                        <p>$shares</p>
+                    </div>";
+        }
+
+        // Return
+        if ($html) {
+            return $html;
+        } else {
+            return "<p>No shares found.</p>";
         }
     }
     
