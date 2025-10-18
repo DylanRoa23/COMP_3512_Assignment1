@@ -149,7 +149,14 @@ PDOControl::connect(CONNSTRING);
                     ?>
                 </div>
                 <div>
-
+                    <?php
+                        if(isset($_GET['ref'])) {
+                            $id = (int) $_GET['ref'];
+                            echo UserControl::getSymbolValue($id);
+                        } else {
+                            echo "<p>Nothing Found</p>";
+                        }
+                    ?>
                 </div>
             </div>
         </div>

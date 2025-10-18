@@ -302,5 +302,56 @@ class UserControl {
         }
     }
     
+    /**
+     * Returns the total current value for each company symbol in the user's portfolio.
+     * It multiplies the latest close price from the history table by the amount of shares owned.
+     * @param int $uid The user ID whose per-symbol values will be calculated.
+     * @return string HTML string displaying the calculated value for each company.
+     */
+    public static function getSymbolValue(int $uid): string {
+
+        // Initialize
+        $html = "";
+        $sql = "SELECT symbol, SUM(amount) AS total_shares
+                FROM portfolio 
+                WHERE userId = :uid
+                GROUP BY symbol
+                ORDER BY symbol ASC";
+        $paramArray = ["uid" => $uid];
+
+        // Query
+        $statement = PDOControl::query($sql, $paramArray);
+
+        // Loop through each symbol to calculate its total value
+        while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+            $symbol = $row['symbol'];
+            $shares = (int)$row['total_shares'];
+
+            // Get latest closing price for this symbol
+            $history = self::getLatestHistory($symbol);
+
+            if ($history && isset($history['close'])) {
+                $closeValue = (float)$history['close'];
+                $totalValue = $shares * $closeValue;
+
+                // Format and add output
+                $html .= "<div class='details'>
+                            <p>$" . number_format($totalValue, 2) . "</p>
+                          </div>";
+            } else {
+                // In case no history exists for symbol
+                $html .= "<div class='details'>
+                            <p>—</p>
+                          </div>";
+            }
+        }
+
+        // Return
+        if ($html) {
+            return $html;
+        } else {
+            return "<p>No values found.</p>";
+        }
+    }
 }
 ?>
