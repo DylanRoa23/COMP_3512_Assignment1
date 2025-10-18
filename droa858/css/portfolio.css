@@ -65,3 +65,7 @@
 #portfolioSummary{
     display: flex;
 }
+
+.details{
+    display: flex;
+}

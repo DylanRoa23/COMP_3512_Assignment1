@@ -155,5 +155,115 @@ class UserControl {
         //Return
         return $totalValue;
     }
+
+    /**
+     * Returns all company symbols in the user's portfolio.
+     * @param int $uid The user ID whose company symbols will be retrieved.
+     * @return string HTML string of clickable company symbols.
+     */
+    public static function getUserSymbol(int $uid): string {
+
+        // Initialize
+        $html = "";
+        $sql = "SELECT DISTINCT symbol 
+                FROM portfolio 
+                WHERE userId = :uid
+                ORDER BY symbol ASC";
+        $paramArray = ["uid" => $uid];
+
+        // Query
+        $statement = PDOControl::query($sql, $paramArray);
+
+        // Echoes a link for each symbol
+        while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+            $symbol = htmlspecialchars($row['symbol']);
+            $html .= "<div class='details'>
+                        <a href='company.php?symbol=$symbol'>$symbol</a>
+                    </div>";
+        }
+
+        // Return
+        if ($html) {
+            return $html;
+        } else {
+            return "<p>No companies found.</p>";
+        }
+    }
+
+    /**
+     * Returns HTML links for all companies symbol in the user's portfolio.
+     * Each company symbol is clickable and links to its company page.
+     * @param int $uid The user ID whose companies will be listed.
+     * @return string HTML string containing <a> tags for each company.
+     */
+    public static function getUserCompanyName(int $uid): string {
+
+        // Initialize
+        $html = "";
+        $sql = "SELECT c.symbol, c.name 
+                FROM portfolio p
+                INNER JOIN companies c ON p.symbol = c.symbol
+                WHERE p.userId = :uid
+                GROUP BY p.symbol, c.name
+                ORDER BY p.symbol ASC";
+        $paramArray = ["uid" => $uid];
+
+        // Query
+        $statement = PDOControl::query($sql, $paramArray);
+
+        // Echoes the HTML links
+        while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+            $symbol = $row['symbol'];
+            $name = $row['name'];
+            $html .= "<div class='details'>
+                        <a href='company.php?symbol=$symbol'>$name</a>
+                    </div>";
+        }
+
+        // Return
+        if ($html) {
+            return $html;
+        } else {
+            return "<p>No companies found.</p>";
+        }
+    }
+
+
+    /**
+     * Returns the sectors for all companies in a user's portfolio.
+     * Each sector corresponds to a company the user owns.
+     * @param int $uid The user ID whose company sectors will be retrieved.
+     * @return string HTML string of company sectors.
+     */
+    public static function getSector(int $uid): string {
+
+        // Initialize
+        $html = "";
+        $sql = "SELECT c.sector 
+                FROM portfolio p
+                INNER JOIN companies c ON p.symbol = c.symbol
+                WHERE p.userId = :uid
+                ORDER BY c.symbol ASC";
+        $paramArray = ["uid" => $uid];
+
+        // Query
+        $statement = PDOControl::query($sql, $paramArray);
+
+        // Echoes the HTML output
+        while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+            $sector = $row['sector'];
+            $html .= "<div class='details'>
+                        <p>$sector</p>
+                    </div>";
+        }
+
+        // Return
+        if ($html) {
+            return $html;
+        } else {
+            return "<p>No sectors found.</p>";
+        }
+    }
+    
 }
 ?>

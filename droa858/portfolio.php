@@ -69,7 +69,7 @@ PDOControl::connect(CONNSTRING);
                                 $companyCount = UserControl::countUserCompanies($id);
                                 echo "<p>$companyCount</p>";
                             } else {
-                                echo "<p>—</p>";
+                                echo "<p>Nothing Found</p>";
                             }
                         ?>
                 </div>
@@ -81,7 +81,7 @@ PDOControl::connect(CONNSTRING);
                             $totalShares = UserControl::countUserShares($id);
                             echo "<p>$totalShares</p>";
                         } else {
-                            echo "<p>—</p>";
+                            echo "<p>Nothing Found</p>";
                         }
                     ?>
                 </div>
@@ -93,7 +93,7 @@ PDOControl::connect(CONNSTRING);
                             $portfolioValue = UserControl::getUserPortfolioValue($id);
                             echo "<p>$" . number_format($portfolioValue, 0) . "</p>";
                         } else {
-                            echo "<p>—</p>";
+                            echo "<p>Nothing Found</p>";
                         }
                     ?>
                 </div>
@@ -101,9 +101,43 @@ PDOControl::connect(CONNSTRING);
 
             <div>
                 <h2>Portfolio Details</h2>
-            </div>
-            <div>
-                <a href="company.php?symbol=GOOG">Google</a>
+                <div class="details">
+                    <h3>Symbol</h3>
+                    <h3>Names</h3>
+                    <h3>Sector</h3>
+                    <h3>Amount</h3>
+                    <h3>Value</h3>
+                </div>
+                <div>
+                    <?php 
+                        if (isset($_GET['ref'])) {
+                            $id = (int) $_GET['ref'];
+                            echo UserControl::getUserSymbol($id);
+                        } else {
+                            echo "<p>Nothing Found</p>";
+                        }
+                    ?>
+                </div>
+                <div>
+                    <?php 
+                        if (isset($_GET['ref'])) {
+                            $id = (int) $_GET['ref'];
+                            echo UserControl::getUserCompanyName($id);
+                        } else {
+                            echo "<p>Nothing Found</p>";
+                        }
+                    ?>
+                </div>
+                <div>
+                    <?php
+                        if(isset($_GET['ref'])) {
+                            $id = (int) $_GET['ref'];
+                            echo UserControl::getSector($id);
+                        } else {
+                            echo "<p>Nothing Found</p>";
+                        }
+                    ?>
+                </div>
             </div>
         </div>
     </main>
