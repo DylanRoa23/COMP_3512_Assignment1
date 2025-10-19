@@ -99,16 +99,16 @@ PDOControl::connect(CONNSTRING);
                 </div>
             </div>
 
-            <div>
+            <div id="details">
                 <h2>Portfolio Details</h2>
-                <div class="details">
-                    <h3>Symbol</h3>
-                    <h3>Names</h3>
-                    <h3>Sector</h3>
-                    <h3>Amount</h3>
-                    <h3>Value</h3>
+                <div id="section">
+                    <h3 id="symbolSection">Symbol</h3>
+                    <h3 id="nameSection">Names</h3>
+                    <h3 id="sectorSection">Sector</h3>
+                    <h3 id="amountSection">Amount</h3>
+                    <h3 id="valueSection">Value</h3>
                 </div>
-                <div>
+                <div id="symbol">
                     <?php 
                         if (isset($_GET['ref'])) {
                             $id = (int) $_GET['ref'];
