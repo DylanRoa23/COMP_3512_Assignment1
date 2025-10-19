@@ -69,3 +69,24 @@
 .details{
     display: flex;
 }
+
+#portfolioSummary{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+
+#portfolioSummary > h2{
+    grid-column: 1/5;
+    text-align: center;
+}
+
+#totalVal, #companies, #numShares{
+    text-align: center;
+}
+
+#totalVal{
+    grid-column: 3/5;
+
+}
+

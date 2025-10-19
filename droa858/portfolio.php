@@ -61,7 +61,7 @@ PDOControl::connect(CONNSTRING);
         <div id="summary">
             <div id="portfolioSummary">
                 <h2>Portfolio Summary</h2>
-                <div>
+                <div id="companies">
                     <h3>Companies</h3>
                         <?php 
                             if (isset($_GET['ref'])) {
@@ -73,7 +73,7 @@ PDOControl::connect(CONNSTRING);
                             }
                         ?>
                 </div>
-                <div>
+                <div id="numShares">
                     <h3># Shares</h3>
                     <?php 
                         if (isset($_GET['ref'])) {
@@ -85,7 +85,7 @@ PDOControl::connect(CONNSTRING);
                         }
                     ?>
                 </div>
-                <div>
+                <div id="totalVal">
                     <h3>Total Value</h3>
                     <?php 
                         if (isset($_GET['ref'])) {
