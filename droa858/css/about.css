@@ -1,0 +1,15 @@
+main{
+    margin: 20px;
+}
+
+h2{
+    text-align: center;
+}
+
+main > p{
+    margin: 20px
+}
+
+main > a{
+    margin: 20px
+}

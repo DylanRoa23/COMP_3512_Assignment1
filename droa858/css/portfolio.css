@@ -108,39 +108,42 @@
 
 #details{
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     grid-gap: 20px;
 }
 
 #details > h2{
     text-align: center;
-    grid-column: 1/6;
+    grid-column: 1/8;
 }
 
 #section{
-    grid-column: 1/6;
+    grid-column: 1/8;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     grid-gap: 20px;
 }
 
-#symbolSection{
+.symbolSection{
     grid-column: 1/2; 
 }
 
-#nameSection{
-    grid-column: 2/3; 
+.nameSection{
+    grid-column: 2/4; 
 }
 
-#sectorSection{
-    grid-column: 3/4; 
+.sectorSection{
+    grid-column: 4/6; 
 }
 
-#amountSection{
-    grid-column: 4/5; 
+.amountSection{
+    grid-column: 6/7; 
 }
 
-#valueSection{
-    grid-column: 5/6; 
+.valueSection{
+    grid-column: 7/8; 
 }
 
+.details{
+    margin-top: 10px;
+}

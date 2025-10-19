@@ -102,13 +102,13 @@ PDOControl::connect(CONNSTRING);
             <div id="details">
                 <h2>Portfolio Details</h2>
                 <div id="section">
-                    <h3 id="symbolSection">Symbol</h3>
-                    <h3 id="nameSection">Names</h3>
-                    <h3 id="sectorSection">Sector</h3>
-                    <h3 id="amountSection">Amount</h3>
-                    <h3 id="valueSection">Value</h3>
+                    <h3 class="symbolSection">Symbol</h3>
+                    <h3 class="nameSection">Names</h3>
+                    <h3 class="sectorSection">Sector</h3>
+                    <h3 class="amountSection">Amount</h3>
+                    <h3 class="valueSection">Value</h3>
                 </div>
-                <div id="symbol">
+                <div class="symbolSection">
                     <?php 
                         if (isset($_GET['ref'])) {
                             $id = (int) $_GET['ref'];
@@ -118,7 +118,7 @@ PDOControl::connect(CONNSTRING);
                         }
                     ?>
                 </div>
-                <div>
+                <div class="nameSection">
                     <?php 
                         if (isset($_GET['ref'])) {
                             $id = (int) $_GET['ref'];
@@ -128,7 +128,7 @@ PDOControl::connect(CONNSTRING);
                         }
                     ?>
                 </div>
-                <div>
+                <div class="sectorSection">
                     <?php
                         if(isset($_GET['ref'])) {
                             $id = (int) $_GET['ref'];
@@ -138,7 +138,7 @@ PDOControl::connect(CONNSTRING);
                         }
                     ?>
                 </div>
-                <div>
+                <div class="amountSection">
                     <?php
                         if(isset($_GET['ref'])) {
                             $id = (int) $_GET['ref'];
@@ -148,7 +148,7 @@ PDOControl::connect(CONNSTRING);
                         }
                     ?>
                 </div>
-                <div>
+                <div class="valueSection">
                     <?php
                         if(isset($_GET['ref'])) {
                             $id = (int) $_GET['ref'];
