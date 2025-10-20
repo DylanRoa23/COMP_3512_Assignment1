@@ -115,6 +115,7 @@ $historyCount = 0;
                 </div>
             </section>
             <section id="stats">
+                <h2>Stats</h2>
                     <div>
                         <strong><?= number_format($hhigh, 2); ?></strong>
                         <div class="line"></div>
