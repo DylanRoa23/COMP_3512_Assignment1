@@ -99,6 +99,36 @@ class CompanyControl
 
     }
 
+    /**
+     * Returns a JSON string containing company's history data. 
+     * @param string The symbol of the company to fetch history data from.
+     * @return string A JSON string of a company's history data.
+     */
+    public static function getHistoryJSON(string $symbol): string
+    {
+
+        // Uppercase the symbol.
+        $symbol = strtoupper($symbol);
+
+        // Set the arguments.
+        $sql =
+            'SELECT id, symbol, date, volume, open, close, high, low
+            FROM history
+            WHERE symbol = :symbol
+            ORDER BY date ASC';
+        $paramArray = ["symbol" => $symbol];
+
+        // Query the data.
+        $statement = PDOControl::query($sql, $paramArray);
+
+        // Get all
+        $data = json_encode($statement->fetchAll(), JSON_NUMERIC_CHECK);
+
+        // Return
+        return $data;
+
+    }
+
 }
 
 ?>

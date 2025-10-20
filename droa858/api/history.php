@@ -11,7 +11,12 @@ header("Access-Control-Allow-Origin: *");
 // Connect.
 PDOControl::connect("sqlite:../data/stocks.db");
 
-
+if (isset($_GET["ref"])) {
+    // Echo JSON
+    echo CompanyControl::getHistoryJSON($_GET["ref"]);
+} else {
+    echo "No userId received.";
+}
 
 // Close
 PDOControl::close();
