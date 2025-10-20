@@ -73,8 +73,8 @@ $historyCount = 0;
             <section>
                 <h2>History (3M)</h2>
                 <div id="hcontainer">
-
-                    <div class="hgrid">
+<div class="thead">
+    <div class="hgrid">
                         <strong>Date</strong>
                         <strong>Volume</strong>
                         <strong>Open</strong>
@@ -82,6 +82,8 @@ $historyCount = 0;
                         <strong>High</strong>
                         <strong>Low</strong>
                     </div>
+</div>
+                    
 
                     <?php
 

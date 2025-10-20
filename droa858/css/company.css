@@ -1,6 +1,6 @@
 /* Main */
 main {
-    background-color: #f0f0f0;
+    background-color: var(--bg-colour);
 }
 main h2 {
     padding: 1.7rem;
@@ -10,6 +10,7 @@ main #info {
     padding: 1rem 2rem;
 }
 
+/* History */
 #displaygrid {
     display: grid;
     grid-template-columns: 60% auto;
@@ -18,13 +19,22 @@ main #info {
 #hcontainer {
     padding: 0 2rem;
 }
+
+/* History Left */
+.thead {
+    position: sticky;
+    top: 0;
+      /* z-index: 10;         make sure it stays above the table rows
+  padding: 10px;
+  border-bottom: 1px solid #ccc; */
+}
 .hgrid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
 padding: 0.1rem;
 }
 .gray {
-    background-color: rgb(189, 189, 189);
+    background-color: var(--grid-alt-colour);
 }
 
 #stats {
@@ -34,7 +44,7 @@ padding: 0.1rem;
     gap: 3rem;
 }
 #stats strong {
-    font-size: 5rem;
+    font-size: 4rem;
 }
 .line {
     height: 5px;
