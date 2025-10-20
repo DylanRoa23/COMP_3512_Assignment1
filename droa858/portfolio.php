@@ -6,33 +6,6 @@ require_once "includes/UserControl.inc.php";
 // Connect
 PDOControl::connect(CONNSTRING);
 
-// Test
-// $dataArray = UserControl::getUserPortfolios(1);
-// while ($row = $dataArray->fetch(PDO::FETCH_ASSOC)) {
-//     foreach ($row as $key => $value) {
-//         echo "Key: " . $key;
-//         echo "<br>";
-//         if (is_array($value)) {
-//             foreach ($value as $value2) {
-//                 echo "Value: " . $value2;
-//                 echo "<br>";
-//             }
-//         } else {
-//             echo "Value: " . $value;
-//             echo "<br>";
-//         }
-
-//     }
-// }
-
-// $dataArray = UserControl::getLatestHistory("GOOG");
-// foreach ($dataArray as $key => $value) {
-//     echo "Key: " . $key;
-//     echo "<br>";
-//     echo "Value: " . $value;
-//     echo "<br>";
-// }
-
 ?>
 
 <!DOCTYPE html>
