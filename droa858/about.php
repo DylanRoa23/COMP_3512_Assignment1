@@ -14,17 +14,18 @@
     <main>
         <h2>About</h2>
     
-        <p>This is our webpage for assignement 1. It allows us to see the porfolio of every clients 
-            inside out database by organizing the information with PHP and SQL in order to make it easy to 
-            look at with our website. This website has a lot of details on the customers' portfolio such as the number 
-            of companies they have shares in, the total number of shares and the total value of those shares. 
-    
-            More detailed stats and informations can be seen underneath the overall values described before. 
-    
-            <br>
-            This work was done by Dylan Roa and Kyle Chen
+        <p>This is our submission for our COMP3512 Assignment #1 at Mount Royal University. This websites fetches the portfolio 
+            of every client in our database and displays the data with PHP and SQL in an easy-to-read format. This website has
+            various details on the customers' portfolios, such as the number of companies they have shares in, the total number
+            of shares and the total value of those shares. 
         </p>
-    
+
+        <p>
+            This work was done by Dylan Roa and Kyle Chen.
+        </p>
+        <p> 
+            Our Tools:
+        </p>
         <a href="https://github.com/DylanRoa23/COMP_3512_Assignment1">Our github repository</a>
     </main>
 </body>
