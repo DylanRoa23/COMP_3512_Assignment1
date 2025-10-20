@@ -67,7 +67,7 @@ $historyCount = 0;
             <p><?= $dataArray["description"]; ?></p>
         </div>
         <div id="displaygrid">
-            <section id="history">
+            <section>
                 <h2>History (3M)</h2>
                 <div id="hgrid">
                     <strong>Date</strong>
@@ -114,9 +114,28 @@ $historyCount = 0;
                     ?>
                 </div>
             </section>
-            <div id="stats">
-
-            </div>
+            <section id="stats">
+                    <div>
+                        <strong><?= number_format($hhigh, 2); ?></strong>
+                        <div class="line"></div>
+                        <h3>History High</h3>
+                    </div>
+                    <div>
+                        <strong><?= number_format($hlow, 2); ?></strong>
+                        <div class="line"></div>
+                        <h3>History Low</h3>
+                    </div>
+                    <div>
+                        <strong><?= number_format($totalVolume); ?></strong>
+                        <div class="line"></div>
+                        <h3>Total Volume</h3>
+                    </div>
+                    <div>
+                        <strong><?= number_format($totalVolume / $historyCount, 2); ?></strong>
+                        <div class="line"></div>
+                        <h3>Average Volume</h3>
+                    </div>
+            </section>
         </div>
     </main>
 
