@@ -17,10 +17,10 @@
         <h3 id="description">Description</h3>
         
         <div id="links">
-            <a href="">/api/companies.php</a>
-            <a href="">/api/companies.php?ref=ads</a>
-            <a href="">/api/portfolio.php?ref=8</a>
-            <a href="">/api/history.php?ref=ads</a>
+            <a href="api/companies.php">/api/companies.php</a>
+            <a href="api/companies.php?ref=ads">/api/companies.php?ref=ads</a>
+            <a href="api/portfolio.php?ref=8">/api/portfolio.php?ref=8</a>
+            <a href="api/history.php?ref=ads">/api/history.php?ref=ads</a>
         </div>
 
         <div id="text">
