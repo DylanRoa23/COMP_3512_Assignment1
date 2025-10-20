@@ -1,7 +1,7 @@
 <?php
 // // Require
 require_once "../includes/connection.inc.php";
-require_once "../includes/CompanyControl.inc.php";
+require_once "../includes/PortfolioControl.inc.php";
 
 // Set header
 header('Content-type: application/json');
@@ -11,7 +11,12 @@ header("Access-Control-Allow-Origin: *");
 // Connect.
 PDOControl::connect("sqlite:../data/stocks.db");
 
-
+if (isset($_GET["ref"])) {
+    // Echo JSON
+    echo PortfolioControl::getPortfolioJSON($_GET["ref"]);
+} else {
+    echo "No userId received.";
+}
 
 // Close
 PDOControl::close();
