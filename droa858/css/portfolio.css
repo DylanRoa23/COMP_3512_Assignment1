@@ -157,3 +157,7 @@
 .details > a { 
     color: #2b6cb0;
 }
+
+.details > a:hover {
+    color: rgb(0, 0, 119);
+}
