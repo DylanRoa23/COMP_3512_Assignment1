@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/about.css">
-    <title>Document</title>
+    <title>About</title>
 </head>
 <body>
     <?php require_once 'includes/header.inc.php' ?>
