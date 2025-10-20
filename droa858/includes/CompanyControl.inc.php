@@ -47,7 +47,7 @@ class CompanyControl {
         $sql = 
             'SELECT symbol, date, volume, open, close, high, low
             FROM history
-            WHERE symbol = ":symbol"
+            WHERE symbol = :symbol
             ORDER BY date DESC';
         $paramArray = ["symbol" => $companySymbol];
 
