@@ -67,7 +67,7 @@ $historyCount = 0;
             <p><?= $dataArray["description"]; ?></p>
         </div>
         <div id="displaygrid">
-            <div id="history">
+            <section id="history">
                 <h2>History (3M)</h2>
                 <div id="hgrid">
                     <strong>Date</strong>
@@ -113,7 +113,7 @@ $historyCount = 0;
                         }
                     ?>
                 </div>
-            </div>
+            </section>
             <div id="stats">
 
             </div>
