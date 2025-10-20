@@ -7,12 +7,10 @@ class CompanyControl {
     /**
      * Returns a PDOStatement containing the company's data. 
      * @param string $companySymbol The symbol of the company to get data from.
-     * @return array A 1D associative array containing the company's data.
+     * @return array A 1D associative array containing the company's data. 
+     *  Array layout: [symbol, name, sector, subindustry, address, exchange, website, description, financials]
      */
     public static function getCompanyData(string $companySymbol): array {
-
-        // Initialize
-        $data = null;
 
         // Set the arguments.
         $sql = 
@@ -41,6 +39,7 @@ class CompanyControl {
      * Returns a PDOStatement pointing to all the history entries from a given company.
      * @param string $companySymbol The symbol of the company to fetch history from.
      * @return PDOStatement The PDOStatement pointing to all the history entries.
+     *  Each row has [symbol, date, volume, open, close, high, low]
      */
     public static function getCompanyHistory(string $companySymbol): PDOStatement {
 
