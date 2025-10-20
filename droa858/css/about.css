@@ -9,6 +9,7 @@ main{
     border-radius: 0.8rem;
     border: 1px solid rgb(134, 134, 134);
     box-shadow: 0.3rem 0.3rem 0.3rem 0.3rem grey;
+    height: 30rem;
 }
 
 h2{
@@ -22,6 +23,7 @@ main > p{
 main a {
     display: block;
     margin: 20px;
+    box-sizing: border-box;
     color: var(--navheading-colour);
 }
 main a:hover {
@@ -30,24 +32,25 @@ main a:hover {
 }
 @keyframes linkglow {
     0% {
-        border: 1px solid var(--navheading-colour);
+        border: 2px solid var(--navheading-colour);
         background-color:gray;
     }
     100% {
-        border: 1px solid gray;
+        border: 2px solid gray;
         background-color: lightgray;
     }
 }
 main a:active {
-    color: violet;
+    color: rgb(0, 162, 255);
+    animation: linkglowactive 2s ease-in-out 0s infinite alternate none;
 }
-@keyframes linkglow {
+@keyframes linkglowactive {
     0% {
-        border: 1px solid var(--navheading-colour);
-        background-color:gray;
+        border: 2px solid var(--link-hover);
+        background-color:rgb(7, 35, 51);
     }
     100% {
-        border: 1px solid gray;
-        background-color: lightgray;
+        border: 2px solid rgb(93, 139, 167);
+        background-color: rgb(14, 65, 94);
     }
 }
