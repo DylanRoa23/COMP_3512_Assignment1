@@ -20,6 +20,21 @@ main > p{
 }
 
 main a {
+    display: block;
     margin: 20px;
     color: var(--navheading-colour);
+}
+main a:hover {
+    color: blue;
+    animation: linkglow 2s ease-in-out 0s infinite alternate none;
+}
+@keyframes linkglow {
+    0% {
+        border: 1px solid var(--navheading-colour);
+        background-color:gray;
+    }
+    100% {
+        border: 1px solid gray;
+        background-color: lightgray;
+    }
 }

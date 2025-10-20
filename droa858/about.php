@@ -37,9 +37,11 @@
         </p>
         <p>
             Our Tools:
-            <br>
-            <a href="https://github.com/DylanRoa23/COMP_3512_Assignment1">Our GitHub Repository</a>
+            <a href="https://github.com/DylanRoa23/COMP_3512_Assignment1" class="linkdiv">
+                Our GitHub Repository
+            </a>
         </p>
+
     </main>
 </body>
 
