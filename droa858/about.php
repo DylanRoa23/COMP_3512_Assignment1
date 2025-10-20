@@ -26,7 +26,7 @@
         <p> 
             Our Tools:
         </p>
-        <a href="https://github.com/DylanRoa23/COMP_3512_Assignment1">Our github repository</a>
+        <a href="https://github.com/DylanRoa23/COMP_3512_Assignment1">Our GitHub Repository</a>
     </main>
 </body>
 </html>
