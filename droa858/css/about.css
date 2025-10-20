@@ -4,6 +4,11 @@ body{
 
 main{
     margin: 20px;
+    padding: 2rem;
+    background-color: var(--grid-alt-colour);
+    border-radius: 0.8rem;
+    border: 1px solid rgb(134, 134, 134);
+    box-shadow: 0.3rem 0.3rem 0.3rem 0.3rem grey;
 }
 
 h2{
