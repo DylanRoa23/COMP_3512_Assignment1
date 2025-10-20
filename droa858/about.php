@@ -14,7 +14,14 @@
     <main>
         <h2>About</h2>
     
-        <p>This is our submission for our COMP3512 Assignment #1 at Mount Royal University. This websites fetches the portfolio 
+        <p>
+            This is our submission for our COMP3512 Assignment #1 at Mount Royal University. This assignment requires us
+            to demonstrate proficiency with HTML, CSS, PHP, SQL, PDO control, and databases. This assignment will measure
+            our skill with these languages and provide APIs for a future assignment.
+        </p>
+
+        <p>
+            This websites fetches the portfolio 
             of every client in our database and displays the data with PHP and SQL in an easy-to-read format. This website has
             various details on the customers' portfolios, such as the number of companies they have shares in, the total number
             of shares and the total value of those shares. 
