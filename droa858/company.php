@@ -8,7 +8,13 @@ require_once "includes/CompanyControl.inc.php";
 PDOControl::connect(CONNSTRING);
 
 // Get the company data.
-$dataArray = CompanyControl::getCompanyData($_GET["symbol"]);
+if (isset($_GET["symbol"])) {
+    $dataArray = CompanyControl::getCompanyData($_GET["symbol"]);
+}
+else{
+    die("Error: No company data received.");
+}
+    
 // $dataArray = CompanyControl::getCompanyData("A");
 // foreach ($dataArray as $key => $value) {
 //     echo "Key: " . $key;
@@ -52,6 +58,14 @@ $dataArray = CompanyControl::getCompanyData($_GET["symbol"]);
             <p><?= $dataArray["exchange"]; ?></p>
             <p>Website: <a href="<?= $dataArray["website"]; ?>"><?= $dataArray["website"]; ?></a></p>
             <p><?= $dataArray["description"]; ?></p>
+        </div>
+        <div id="hgrid">
+            <div id="history">
+
+            </div>
+            <div id="">
+
+            </div>
         </div>
     </main>
 
