@@ -2,7 +2,8 @@
 /**
  * Fetches and displays company data from the stocks.db database.
  */
-class CompanyControl {
+class CompanyControl
+{
 
     /**
      * Returns a PDOStatement containing the company's data. 
@@ -10,10 +11,11 @@ class CompanyControl {
      * @return array A 1D associative array containing the company's data. 
      *  Array layout: [symbol, name, sector, subindustry, address, exchange, website, description, financials]
      */
-    public static function getCompanyData(string $companySymbol): array {
+    public static function getCompanyData(string $companySymbol): array
+    {
 
         // Set the arguments.
-        $sql = 
+        $sql =
             "SELECT symbol, name, sector, subindustry, address, exchange, website, description, financials
             FROM companies
             WHERE symbol = :symbol";
@@ -23,7 +25,7 @@ class CompanyControl {
         $statement = PDOControl::query($sql, $paramArray);
 
         // Get the data.
-        if(isset($statement)){
+        if (isset($statement)) {
 
             // Get the first and only row.
             $data = $statement->fetch(PDO::FETCH_ASSOC);
@@ -41,10 +43,11 @@ class CompanyControl {
      * @return PDOStatement The PDOStatement pointing to all the history entries.
      *  Each row has [symbol, date, volume, open, close, high, low]
      */
-    public static function getCompanyHistory(string $companySymbol): PDOStatement {
+    public static function getCompanyHistory(string $companySymbol): PDOStatement
+    {
 
         // Set the arguments.
-        $sql = 
+        $sql =
             'SELECT symbol, date, volume, open, close, high, low
             FROM history
             WHERE symbol = :symbol
@@ -56,6 +59,29 @@ class CompanyControl {
 
         // Return
         return $statement;
+
+    }
+
+    /**
+     * Returns a JSON string containing all company data. 
+     * @return string A JSON string of all company data.
+     */
+    public static function getAllCompanies(): string
+    {
+
+        // Set the arguments.
+        $sql =
+            "SELECT symbol, name, sector, subindustry, address, exchange, website, description, latitude, longitude, financials
+            FROM companies";
+
+        // Query the data.
+        $statement = PDOControl::query($sql);
+
+        // Get all
+        $data = json_encode($statement->fetchAll(), JSON_NUMERIC_CHECK);
+
+        // Return
+        return $data;
 
     }
 

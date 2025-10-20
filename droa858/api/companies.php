@@ -11,7 +11,8 @@ header("Access-Control-Allow-Origin: *");
 // Connect.
 PDOControl::connect("sqlite:../data/stocks.db");
 
-
+// Echo JSON
+echo CompanyControl::getAllCompanies();
 
 // Close
 PDOControl::close();
