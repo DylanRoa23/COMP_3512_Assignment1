@@ -37,7 +37,7 @@
         </p>
         <p>
             Our Tools:
-            <a href="https://github.com/DylanRoa23/COMP_3512_Assignment1" class="linkdiv">
+            <a href="https://github.com/DylanRoa23/COMP_3512_Assignment1" target="_blank">
                 Our GitHub Repository
             </a>
         </p>

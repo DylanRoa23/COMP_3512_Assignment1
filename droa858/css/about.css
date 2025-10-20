@@ -38,3 +38,16 @@ main a:hover {
         background-color: lightgray;
     }
 }
+main a:active {
+    color: violet;
+}
+@keyframes linkglow {
+    0% {
+        border: 1px solid var(--navheading-colour);
+        background-color:gray;
+    }
+    100% {
+        border: 1px solid gray;
+        background-color: lightgray;
+    }
+}
