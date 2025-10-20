@@ -10,6 +10,7 @@ PDOControl::connect(CONNSTRING);
 // Get the company data.
 if (isset($_GET["symbol"])) {
     $dataArray = CompanyControl::getCompanyData($_GET["symbol"]);
+    $historyStatement = CompanyControl::getCompanyHistory($_GET["symbol"]);
 }
 else{
     die("Error: No company data received.");
@@ -31,6 +32,12 @@ else{
 //         echo "<br>";
 //     }
 // }
+
+// Initialize stats.
+$hhigh = null;
+$hlow = null;
+$totalVolume = 0;
+$historyCount = 0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,11 +66,55 @@ else{
             <p>Website: <a href="<?= $dataArray["website"]; ?>"><?= $dataArray["website"]; ?></a></p>
             <p><?= $dataArray["description"]; ?></p>
         </div>
-        <div id="hgrid">
+        <div id="displaygrid">
             <div id="history">
+                <h2>History (3M)</h2>
+                <div id="hgrid">
+                    <strong>Date</strong>
+                    <strong>Volume</strong>
+                    <strong>Open</strong>
+                    <strong>Close</strong>
+                    <strong>High</strong>
+                    <strong>Low</strong>
+                    <?php
+                        foreach ($historyStatement as $row){ ?>
+                            <p><?= $row["date"]; ?></p>
+                            <p><?= $row["volume"]; ?></p>
+                            <p><?= $row["open"]; ?></p>
+                            <p><?= $row["close"]; ?></p>
+                            <p><?= $row["high"]; ?></p>
+                            <p><?= $row["low"]; ?></p>
 
+                            <?php
+                            // Update stats.
+
+                            // If history high is not set, or if it is lower,
+                            if(!isset($hhigh) || $hhigh < $row["high"]){
+                                
+                                // Update to this row's high.
+                                $hhigh = $row["high"];
+
+                            }
+
+                            // If history low is not set,
+                            if(!isset($hlow) || $hlow > $row["low"]){
+                                
+                                // Set it.
+                                $hlow = $row["low"];
+
+                            }
+
+                            // Add to total
+                            $totalVolume += $row["volume"];
+
+                            // Add to historyCount.
+                            $historyCount++;
+
+                        }
+                    ?>
+                </div>
             </div>
-            <div id="">
+            <div id="stats">
 
             </div>
         </div>
