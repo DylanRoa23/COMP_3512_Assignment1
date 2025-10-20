@@ -34,6 +34,8 @@ main #info {
 #stats > div {
     width: 75%;
     padding: 3rem;
+    background-image: url("../images/Card.png");
+    background-size: cover;
     background-color: rgb(240, 240, 240);
     border-radius: 5px;
     box-shadow: 5px 5px 5px 5px gray;
