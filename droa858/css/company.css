@@ -15,10 +15,13 @@ main #info {
     grid-template-columns: 60% auto;
 }
 
+#hcontainer {
+    padding: 0 2rem;
+}
 .hgrid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-
+padding: 0.1rem;
 }
 .gray {
     background-color: rgb(189, 189, 189);

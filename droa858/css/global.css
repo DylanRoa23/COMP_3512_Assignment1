@@ -46,3 +46,8 @@ nav > div > a {
 }
 
 /* Main */
+.subtext {
+    color: gray;
+    font-style: italic;
+    font-size: 0.9rem;
+}

@@ -60,15 +60,19 @@ $historyCount = 0;
             <h1><?= $dataArray["name"]; ?> (<?= $dataArray["symbol"]; ?>)</h1>
             <p><?= $dataArray["sector"]; ?></p>
             <p><?= $dataArray["subindustry"]; ?></p>
-            <p>Based in <?= $dataArray["address"]; ?></p>
-            <p><?= $dataArray["exchange"]; ?></p>
-            <p>Website: <a href="<?= $dataArray["website"]; ?>"><?= $dataArray["website"]; ?></a></p>
+            <br>
             <p><?= $dataArray["description"]; ?></p>
+            <br>
+            <p>Based in <strong><?= $dataArray["address"]; ?></strong></p>
+            <p>Website: <a href="<?= $dataArray["website"]; ?>"><?= $dataArray["website"]; ?></a></p>
+            
+            <br>
+            <p class="subtext">Data sourced from <?= $dataArray["exchange"]; ?></p>
         </div>
         <div id="displaygrid">
             <section>
                 <h2>History (3M)</h2>
-                <div>
+                <div id="hcontainer">
 
                     <div class="hgrid">
                         <strong>Date</strong>
