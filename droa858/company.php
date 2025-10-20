@@ -11,11 +11,10 @@ PDOControl::connect(CONNSTRING);
 if (isset($_GET["symbol"])) {
     $dataArray = CompanyControl::getCompanyData($_GET["symbol"]);
     $historyStatement = CompanyControl::getCompanyHistory($_GET["symbol"]);
-}
-else{
+} else {
     die("Error: No company data received.");
 }
-    
+
 // $dataArray = CompanyControl::getCompanyData("A");
 // foreach ($dataArray as $key => $value) {
 //     echo "Key: " . $key;
@@ -69,73 +68,84 @@ $historyCount = 0;
         <div id="displaygrid">
             <section>
                 <h2>History (3M)</h2>
-                <div id="hgrid">
-                    <strong>Date</strong>
-                    <strong>Volume</strong>
-                    <strong>Open</strong>
-                    <strong>Close</strong>
-                    <strong>High</strong>
-                    <strong>Low</strong>
+                <div>
+
+                    <div class="hgrid">
+                        <strong>Date</strong>
+                        <strong>Volume</strong>
+                        <strong>Open</strong>
+                        <strong>Close</strong>
+                        <strong>High</strong>
+                        <strong>Low</strong>
+                    </div>
+
                     <?php
-                        foreach ($historyStatement as $row){ ?>
+
+                    foreach ($historyStatement as $row) { ?>
+                        <div class="hgrid 
+                            <?php if ($historyCount % 2 == 0) {
+                                echo "gray";
+                            }
+                            ?>">
                             <p><?= $row["date"]; ?></p>
                             <p><?= $row["volume"]; ?></p>
                             <p><?= number_format($row["open"], 2); ?></p>
                             <p><?= number_format($row["close"], 2); ?></p>
                             <p><?= number_format($row["high"], 2); ?></p>
                             <p><?= number_format($row["low"], 2); ?></p>
+                        </div>
+                        <?php
+                        // Update stats.
+                    
+                        // If history high is not set, or if it is lower,
+                        if (!isset($hhigh) || $hhigh < $row["high"]) {
 
-                            <?php
-                            // Update stats.
-
-                            // If history high is not set, or if it is lower,
-                            if(!isset($hhigh) || $hhigh < $row["high"]){
-                                
-                                // Update to this row's high.
-                                $hhigh = $row["high"];
-
-                            }
-
-                            // If history low is not set,
-                            if(!isset($hlow) || $hlow > $row["low"]){
-                                
-                                // Set it.
-                                $hlow = $row["low"];
-
-                            }
-
-                            // Add to total
-                            $totalVolume += $row["volume"];
-
-                            // Add to historyCount.
-                            $historyCount++;
+                            // Update to this row's high.
+                            $hhigh = $row["high"];
 
                         }
+
+                        // If history low is not set,
+                        if (!isset($hlow) || $hlow > $row["low"]) {
+
+                            // Set it.
+                            $hlow = $row["low"];
+
+                        }
+
+                        // Add to total
+                        $totalVolume += $row["volume"];
+
+                        // Add to historyCount.
+                        $historyCount++;
+
+                    }
                     ?>
+
                 </div>
             </section>
             <section id="stats">
                 <h2>Stats</h2>
-                    <div>
-                        <strong><?= number_format($hhigh, 2); ?></strong>
-                        <div class="line"></div>
-                        <h3>History High</h3>
-                    </div>
-                    <div>
-                        <strong><?= number_format($hlow, 2); ?></strong>
-                        <div class="line"></div>
-                        <h3>History Low</h3>
-                    </div>
-                    <div>
-                        <strong><?= number_format($totalVolume); ?></strong>
-                        <div class="line"></div>
-                        <h3>Total Volume</h3>
-                    </div>
-                    <div>
-                        <strong><?= number_format($totalVolume / $historyCount, 2); ?></strong>
-                        <div class="line"></div>
-                        <h3>Average Volume</h3>
-                    </div>
+                <div>
+                    <strong><?= number_format($hhigh, 2); ?></strong>
+                    <div class="line"></div>
+                    <h3>History High</h3>
+                </div>
+                <div>
+                    <strong><?= number_format($hlow, 2); ?></strong>
+                    <div class="line"></div>
+                    <h3>History Low</h3>
+                </div>
+                <div>
+                    <strong><?= number_format($totalVolume); ?></strong>
+                    <div class="line"></div>
+                    <h3>Total Volume</h3>
+                </div>
+                <div>
+                    <strong><?= number_format($totalVolume / $historyCount, 2); ?></strong>
+                    <div class="line"></div>
+                    <h3>Average Volume</h3>
+                </div>
             </section>
         </div>
     </main>

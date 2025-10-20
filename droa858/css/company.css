@@ -14,10 +14,16 @@ main #info {
     display: grid;
     grid-template-columns: 60% auto;
 }
-#hgrid {
+
+.hgrid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
+
 }
+.gray {
+    background-color: rgb(189, 189, 189);
+}
+
 #stats {
     display: flex;
     flex-direction: column;
