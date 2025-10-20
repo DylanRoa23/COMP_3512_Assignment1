@@ -63,19 +63,33 @@ class CompanyControl
     }
 
     /**
-     * Returns a JSON string containing all company data. 
-     * @return string A JSON string of all company data.
+     * Returns a JSON string containing company data. 
+     * @param ?string The symbol of the company to fetch data from. If null, all companies are collected from.
+     * @return string A JSON string of company data.
      */
-    public static function getAllCompanies(): string
+    public static function getJSON(?string $symbol = null): string
     {
 
         // Set the arguments.
         $sql =
             "SELECT symbol, name, sector, subindustry, address, exchange, website, description, latitude, longitude, financials
             FROM companies";
+        $paramArray = null;
+
+        // If a symbol is given,
+        if (isset($symbol)) {
+
+            // Uppercase the symbol.
+            $symbol = strtoupper($symbol);
+
+            // Narrow to the symbol.
+            $sql .= " WHERE symbol = :symbol";
+            $paramArray = ["symbol" => $symbol];
+
+        }
 
         // Query the data.
-        $statement = PDOControl::query($sql);
+        $statement = PDOControl::query($sql, $paramArray);
 
         // Get all
         $data = json_encode($statement->fetchAll(), JSON_NUMERIC_CHECK);
