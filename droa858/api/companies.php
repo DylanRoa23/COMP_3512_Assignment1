@@ -13,10 +13,10 @@ PDOControl::connect("sqlite:../data/stocks.db");
 
 if (isset($_GET["ref"])) {
     // Echo JSON
-    echo CompanyControl::getJSON($_GET["ref"]);
+    echo CompanyControl::getCompanyJSON($_GET["ref"]);
 } else {
     // Echo JSON
-    echo CompanyControl::getJSON();
+    echo CompanyControl::getCompanyJSON();
 }
 
 // Close

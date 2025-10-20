@@ -67,7 +67,7 @@ class CompanyControl
      * @param ?string The symbol of the company to fetch data from. If null, all companies are collected from.
      * @return string A JSON string of company data.
      */
-    public static function getJSON(?string $symbol = null): string
+    public static function getCompanyJSON(?string $symbol = null): string
     {
 
         // Set the arguments.
