@@ -87,6 +87,7 @@
     padding: 10px;
     border: solid;
     border-radius: 20px;
+    background-color: white;
 }
 
 #totalVal > p{
