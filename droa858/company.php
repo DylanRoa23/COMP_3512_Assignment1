@@ -80,10 +80,10 @@ $historyCount = 0;
                         foreach ($historyStatement as $row){ ?>
                             <p><?= $row["date"]; ?></p>
                             <p><?= $row["volume"]; ?></p>
-                            <p><?= $row["open"]; ?></p>
-                            <p><?= $row["close"]; ?></p>
-                            <p><?= $row["high"]; ?></p>
-                            <p><?= $row["low"]; ?></p>
+                            <p><?= number_format($row["open"], 2); ?></p>
+                            <p><?= number_format($row["close"], 2); ?></p>
+                            <p><?= number_format($row["high"], 2); ?></p>
+                            <p><?= number_format($row["low"], 2); ?></p>
 
                             <?php
                             // Update stats.
