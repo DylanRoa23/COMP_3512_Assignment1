@@ -1,11 +1,11 @@
 body{
-    background-color: #f0f0f0
+    background-color: #f0f0f0;
 }
 
 main{
     margin: 20px;
     padding: 2rem;
-    background-color: var(--grid-alt-colour);
+    background-color: var(--);
     border-radius: 0.8rem;
     border: 1px solid rgb(134, 134, 134);
     box-shadow: 0.3rem 0.3rem 0.3rem 0.3rem grey;
@@ -16,9 +16,10 @@ h2{
 }
 
 main > p{
-    margin: 20px
+    margin: 20px;
 }
 
-main > a{
-    margin: 20px
+main a {
+    margin: 20px;
+    color: var(--navheading-colour);
 }
