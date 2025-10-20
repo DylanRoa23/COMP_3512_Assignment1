@@ -46,7 +46,7 @@ class UserControl {
     }
 
     /**
-     * Returns a PDOStatement containing the latest history data on a company.
+     * Returns an array containing the latest history data on a company.
      * @param int $symbol The symbol of the company to get history data from.
      * @return array A 1D associative array containing the latest history.
      */
@@ -92,7 +92,7 @@ class UserControl {
         // Convert to array
         $result = $statement->fetch();
 
-        //Return
+        // Return
         return $result['company_count'];
 
     }
@@ -211,7 +211,7 @@ class UserControl {
         // Query
         $statement = PDOControl::query($sql, $paramArray);
 
-        // Echoes the HTML links
+        // Adds the HTML links
         while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
             $symbol = $row['symbol'];
             $name = $row['name'];
