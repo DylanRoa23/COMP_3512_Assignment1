@@ -50,7 +50,7 @@ $dataArray = CompanyControl::getCompanyData($_GET["symbol"]);
             <p><?= $dataArray["subindustry"]; ?></p>
             <p>Based in <?= $dataArray["address"]; ?></p>
             <p><?= $dataArray["exchange"]; ?></p>
-            <p><?= $dataArray["website"]; ?></p>
+            <p>Website: <a href="<?= $dataArray["website"]; ?>"><?= $dataArray["website"]; ?></a></p>
             <p><?= $dataArray["description"]; ?></p>
         </div>
     </main>
